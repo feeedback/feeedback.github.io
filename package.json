@@ -1,19 +1,26 @@
 {
-  "name": "feeedback.github.io",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/feeedback/feeedback.github.io.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/feeedback/feeedback.github.io/issues"
-  },
-  "homepage": "https://github.com/feeedback/feeedback.github.io#readme"
+    "name": "feeedback.github.io",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "serve": "jekyll serve -w -l",
+        "build": "jekyll build --watch",
+        "gulp": "gulp"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/feeedback/feeedback.github.io.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/feeedback/feeedback.github.io/issues"
+    },
+    "homepage": "https://github.com/feeedback/feeedback.github.io#readme",
+    "devDependencies": {
+        "browser-sync": "^2.26.12",
+        "gulp": "^4.0.2"
+    }
 }
