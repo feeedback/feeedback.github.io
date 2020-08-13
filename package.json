@@ -2,12 +2,12 @@
     "name": "feeedback.github.io",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "index.html",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "serve": "jekyll serve -w -l",
-        "build": "jekyll build --watch",
-        "gulp": "gulp"
+        "serve": "bundle exec jekyll serve -w",
+        "deploy-gh-pages": "gh-pages -d _site",
+        "build": "bundle exec jekyll build & gulp preBuild & npm run deploy-gh-pages",
+        "gulp-preBuild": "gulp preBuild"
     },
     "repository": {
         "type": "git",
@@ -21,6 +21,11 @@
     "homepage": "https://github.com/feeedback/feeedback.github.io#readme",
     "devDependencies": {
         "browser-sync": "^2.26.12",
-        "gulp": "^4.0.2"
-    }
+        "gh-pages": "^3.1.0",
+        "gulp": "^4.0.2",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-htmlmin": "^5.0.1",
+        "gulp-terser": "^1.3.2"
+    },
+    "dependencies": {}
 }

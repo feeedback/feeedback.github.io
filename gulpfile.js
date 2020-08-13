@@ -1,11 +1,15 @@
-const { watch, series } = require('gulp');
+const { watch, series, parallel, dest, src } = require('gulp');
 const { exec } = require('child_process');
 const bs = require('browser-sync').create();
 // const sass = require('gulp-sass');
+const cleanCSS = require('gulp-clean-css');
+const htmlmin = require('gulp-htmlmin');
+const terser = require('gulp-terser');
 
 const path = {
     html: ['*.html', '_includes/*.html', '_layouts/*.html'],
     scss: ['scss/**/*.scss'],
+    // css: ['assets/css/*.css'],
     // posts: ['_posts/*.*', '_country-list/*.*'],
     config: ['_config.yml', '_data/*'],
 };
@@ -43,4 +47,30 @@ function watchAll(cb) {
     cb();
 }
 
+const minifyCss = (cb) => {
+    src('_site/**/*.css')
+        .pipe(cleanCSS())
+        .pipe(dest('_site'));
+    cb();
+};
+const minifyHtml = (cb) => {
+    src('_site/**/*.html')
+        .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
+        .pipe(dest('_site'));
+    cb();
+};
+const minifyJs = (cb) => {
+    src('_site/**/*.js')
+        .pipe(
+            terser({
+                keep_fnames: true,
+                mangle: false,
+            })
+        )
+        .pipe(dest('_site'));
+
+    cb();
+};
+//  pipeline(gulp.src('lib/*.js'), uglify(), gulp.dest('dist'));
 exports.default = series(browserSyncInit, watchAll);
+exports.preBuild = parallel(minifyCss, minifyHtml, minifyJs);
