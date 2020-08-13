@@ -5,6 +5,7 @@ const bs = require('browser-sync').create();
 const cleanCSS = require('gulp-clean-css');
 const htmlmin = require('gulp-htmlmin');
 const terser = require('gulp-terser');
+const size = require('gulp-filesize');
 
 const path = {
     html: ['*.html', '_includes/*.html', '_layouts/*.html'],
@@ -30,34 +31,34 @@ function browserSyncInit(cb) {
             baseDir: '_site',
         },
     });
-    cb();
+    return cb();
 }
 function browserSyncReload(cb) {
     bs.reload();
-    cb();
+    return cb();
 }
 
 function jekyllBuild(cb) {
     exec('jekyll build');
-    cb();
+    return cb();
 }
 function watchAll(cb) {
     watch(allPaths, series(jekyllBuild, browserSyncReload));
     // gulp.watch(path.scss, ['sass']);
-    cb();
+    return cb();
 }
 
 const minifyCss = (cb) => {
     src('_site/**/*.css')
         .pipe(cleanCSS())
         .pipe(dest('_site'));
-    cb();
+    return cb();
 };
 const minifyHtml = (cb) => {
     src('_site/**/*.html')
         .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
         .pipe(dest('_site'));
-    cb();
+    return cb();
 };
 const minifyJs = (cb) => {
     src('_site/**/*.js')
@@ -69,8 +70,14 @@ const minifyJs = (cb) => {
         )
         .pipe(dest('_site'));
 
+    return cb();
+};
+
+const printSize = (cb) => {
+    // src('_site/**/*.*').pipe(size());
     cb();
 };
+
 //  pipeline(gulp.src('lib/*.js'), uglify(), gulp.dest('dist'));
 exports.default = series(browserSyncInit, watchAll);
-exports.preBuild = parallel(minifyCss, minifyHtml, minifyJs);
+exports.preBuild = series(parallel(minifyCss, minifyHtml, minifyJs), printSize);
