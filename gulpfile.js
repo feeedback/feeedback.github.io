@@ -1,11 +1,15 @@
 const { watch, series, parallel, dest, src } = require('gulp');
-const { exec } = require('child_process');
+const { execSync } = require('child_process');
 const bs = require('browser-sync').create();
 // const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const htmlmin = require('gulp-htmlmin');
 const terser = require('gulp-terser');
-const size = require('gulp-filesize');
+const size = require('gulp-size');
+const webp = require('gulp-webp');
+
+const fs = require('fs').promises;
+const glob = require('glob');
 
 const path = {
     html: ['*.html', '_includes/*.html', '_layouts/*.html'],
@@ -38,16 +42,6 @@ function browserSyncReload(cb) {
     return cb();
 }
 
-function jekyllBuild(cb) {
-    exec('jekyll build');
-    return cb();
-}
-function watchAll(cb) {
-    watch(allPaths, series(jekyllBuild, browserSyncReload));
-    // gulp.watch(path.scss, ['sass']);
-    return cb();
-}
-
 const minifyCss = (cb) => {
     src('_site/**/*.css')
         .pipe(cleanCSS())
@@ -72,12 +66,48 @@ const minifyJs = (cb) => {
 
     return cb();
 };
+const minifyImage = async (cb) => {
+    src('_site/**/*.{jpg,png}')
+        .pipe(webp({ quality: 92, method: 6 }))
+        .pipe(dest('_site'));
 
-const printSize = (cb) => {
-    // src('_site/**/*.*').pipe(size());
+    // glob('_site/**/*.{jpg,png}', {}, async (err, files) => {
+    //     if (err) {
+    //         console.error(err);
+    //     }
+    //     await Promise.all(files.map((file) => fs.unlink(file)));
+    // });
     cb();
 };
 
-//  pipeline(gulp.src('lib/*.js'), uglify(), gulp.dest('dist'));
+const printSize = (cb) => {
+    src(`_site/**/*.html`).pipe(size({ title: 'html' }));
+    src(`_site/**/*.css`).pipe(size({ title: 'css' }));
+    src(`_site/**/*.js`).pipe(size({ title: 'js' }));
+    src(`_site/**/*.webp`).pipe(size({ title: 'webp' }));
+    src(`_site/**/*.jpg`).pipe(size({ title: 'jpg' }));
+    src(`_site/**/*.png`).pipe(size({ title: 'png' }));
+    src(`_site/**/*.ico`).pipe(size({ title: 'ico' }));
+    cb();
+};
+const preBuild = series(
+    parallel(minifyCss, minifyHtml, minifyJs, minifyImage),
+    printSize
+);
+
+const jekyllBuild = (cb) => {
+    execSync('bundle exec jekyll build');
+    return cb();
+};
+
+const watchAll = (cb) => {
+    watch(
+        '.',
+        { ignored: '_site', delay: 100, awaitWriteFinish: true },
+        series(jekyllBuild, preBuild, browserSyncReload)
+    );
+    // gulp.watch(path.scss, ['sass']);
+    return cb();
+};
+exports.preBuild = preBuild;
 exports.default = series(browserSyncInit, watchAll);
-exports.preBuild = series(parallel(minifyCss, minifyHtml, minifyJs), printSize);

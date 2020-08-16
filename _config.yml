@@ -37,14 +37,14 @@ author:
     hexlet: risok
     freecodecamp: risok
     # medium            : your_username
-# soundcloud        : your_username
-# spotify           : your_username
-# stackoverflow     : your_user_id
-# tumblr            : your_username.tumblr.com
-# twitch            : your_username
-# twitter           : feeedback
-# vimeo             : your_username
-# youtube           : your_channel_name
+    # soundcloud        : your_username
+    # spotify           : your_username
+    # stackoverflow     : your_user_id
+    # tumblr            : your_username.tumblr.com
+    # twitch            : your_username
+    # twitter           : feeedback
+    # vimeo             : your_username
+    # youtube           : your_channel_name
 
 ### Author Main Info ###
 main_info_author:
@@ -98,4 +98,7 @@ exclude:
     - node_modules
     - 'package*.json'
     - gulpfile.js
+    - _site
 
+disable-disk-cache: true
+safe: true
