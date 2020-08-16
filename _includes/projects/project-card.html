@@ -4,27 +4,24 @@
     <div class="img-gradient">
       <img id="{{ project_id }}-img" class="card-img-top" src="{{ project_img }}"
         alt="{{ project_name }}" />
+      <h4 class="project-modal-text"><a href="{{ project_demo_url }}" class><button
+            class="btn btn-primary my-btn-primary">&gt; Watch demo &lt;</button></a></h4>
     </div>
     {%- endif -%}
 
 
 
 
-    <div class="card-body pt-2">
-      <h5 id="{{ project_id }}-name" class="card-title mb-1 mt-1 text-center">
+    <div class=" card-body pt-2">
+      <h5 id="{{ project_id }}-name" class="card-title mb-3 mt-1 text-center">
         {{ project_name }}
       </h5>
 
-      <div class="links-project d-flex justify-content-center mb-3">
-
-        <a href="{{ project_source_url }}" class="my-btn text-dark"><i
-            class="icon-github"></i>&nbsp;Source</a>
-
-        <a href="{{ project_demo_url }}" class="my-btn">&#9654;&nbsp;Demo</a>
-
-      </div>
-
-      <p id="{{ project_id }}-desc" class="card-text">{{ project_desc }}</p>
+      <p id="{{ project_id }}-desc" class="card-text">{{ project_desc }}
+        <a href="{{ project_source_url }}" class="my-btn text-dark d-inline-block">
+          <cite title="Github repository"><span class="d-inline-block"><i
+                class="icon-github"></i>Source</span></cite></a>
+      </p>
       <p id="{{ project_id }}-tools" class="card-text">
         {%- for tool in project_tools -%}
         <span class="badge text-primary border">{{ tool }}</span>&thinsp;

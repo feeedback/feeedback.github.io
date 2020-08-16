@@ -64,12 +64,20 @@
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
 }
+
 .my-btn.text-dark::before {
+    height: 1px;
+    left: 2px;
+    bottom: 2px;
     background-color: #343a40;
 }
+
 .my-btn:hover::before {
     visibility: visible;
     transform: scaleX(1);
+}
+.my-btn.text-dark {
+    font-weight: bold;
 }
 // gradient over image
 
@@ -96,6 +104,48 @@
     background: linear-gradient(45deg, #007bff29 0%, #ffffff00 100%);
     // background: radial-gradient(circle, rgba(255,255,255,0) 35%, rgb(24, 154, 255, 0.28) 100%);
 }
+.img-gradient .project-modal-text a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff00;
+    justify-content: center;
+    // align-items: center;
+}
+.img-gradient .project-modal-text button {
+    padding: 0em 2em;
+    font-size: 1.2rem;
+}
+
+.img-gradient .project-modal-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%) translateY(-50%);
+    margin: 0;
+    // padding: 1em;
+    background-color: #0000004f;
+    opacity: 1;
+    z-index: 1;
+    transition: all 1s;
+}
+
+@media (pointer: fine) and (hover: hover) {
+    .img-gradient .project-modal-text {
+        opacity: 0;
+    }
+    .img-gradient:hover .project-modal-text {
+        opacity: 1;
+    }
+}
+
+img-gradient:hover {
+}
 .badge {
     font-weight: 400;
     border-color: #cdd6e0 !important;
@@ -105,9 +155,15 @@
     line-height: 1em;
 }
 #minesweeper-desc {
-    font-size: 0.9em !important;
+    font-size: 1em !important;
 }
 .links-project {
     column-gap: 2em;
+}
+
+.my-btn-primary {
+    color: #ffffffd1;
+    background-color: #007bffb8;
+    border-color: #007bff29;
 }
 @import 'portfolYOU';
