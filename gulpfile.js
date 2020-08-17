@@ -90,10 +90,6 @@ const printSize = (cb) => {
     src(`_site/**/*.ico`).pipe(size({ title: 'ico' }));
     cb();
 };
-const preBuild = series(
-    parallel(minifyCss, minifyHtml, minifyJs, minifyImage),
-    printSize
-);
 
 const jekyllBuild = (cb) => {
     execSync('bundle exec jekyll build');
@@ -104,10 +100,18 @@ const watchAll = (cb) => {
     watch(
         '.',
         { ignored: '_site', delay: 100, awaitWriteFinish: true },
-        series(jekyllBuild, preBuild, browserSyncReload)
+        series(
+            jekyllBuild,
+            series(parallel(minifyCss, minifyHtml, minifyJs, minifyImage), printSize),
+            browserSyncReload
+        )
     );
     // gulp.watch(path.scss, ['sass']);
     return cb();
 };
-exports.preBuild = preBuild;
+
+exports.afterBuild = series(
+    parallel(minifyCss, minifyHtml, minifyJs, minifyImage),
+    printSize
+);
 exports.default = series(browserSyncInit, watchAll);

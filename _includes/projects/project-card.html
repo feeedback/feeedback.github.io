@@ -3,7 +3,7 @@
     {%- if project_img -%}
     <div class="img-gradient">
       <img id="{{ project_id }}-img" class="card-img-top" src="{{ project_img }}"
-        alt="{{ project_name }}" />
+        alt="{{ project_name }}" aspectratio="20x13" loading="lazy" />
       <h4 class="project-modal-text"><a href="{{ project_demo_url }}" class><button
             class="btn btn-primary my-btn-primary">&gt; Watch demo &lt;</button></a></h4>
     </div>
@@ -13,7 +13,7 @@
 
 
     <div class=" card-body pt-2">
-      <h5 id="{{ project_id }}-name" class="card-title mb-3 mt-1 text-center">
+      <h5 id="{{ project_id }}-name" class="card-title mt-2 mb-3 text-center">
         {{ project_name }}
       </h5>
 
@@ -24,7 +24,7 @@
       </p>
       <p id="{{ project_id }}-tools" class="card-text">
         {%- for tool in project_tools -%}
-        <span class="badge text-primary border">{{ tool }}</span>&thinsp;
+        <span class="badge border">{{ tool }}</span>&thinsp;
         {%- endfor -%}
       </p>
     </div>
