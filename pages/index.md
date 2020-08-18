@@ -12,5 +12,4 @@ weight: 1
 ---
 {% include landing.html %}
 
-
 {% include projects/index.html %}
