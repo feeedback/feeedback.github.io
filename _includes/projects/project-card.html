@@ -4,13 +4,16 @@
     <div class="img-gradient">
       <img id="{{ project_id }}-img" class="card-img-top" src="{{ project_img }}"
         alt="{{ project_name }}" aspectratio="20x13" loading="lazy" />
-      <h4 class="project-modal-text"><a href="{{ project_demo_url }}" class><button
+      <h4 class="project-modal-text"><a href="{{ project_demo_url }}" tabindex="-1"><button
             class="btn btn-primary my-btn-primary">&gt; Watch demo &lt;</button></a></h4>
     </div>
     {%- endif -%}
 
 
 
+    <!-- TODO: добавить кнопку "подробнее" на карточку проекта
+       - открывается модальное окно с каруселью фото,
+    чтобы показать 3+ фото, как выглядит проект под разными устройствами -->
 
     <div class=" card-body pt-2">
       <h5 id="{{ project_id }}-name" class="card-title mt-2 mb-3 text-center">

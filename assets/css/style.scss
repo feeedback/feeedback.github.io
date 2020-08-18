@@ -85,6 +85,8 @@
     object-fit: cover;
     width: 100%;
     max-width: 100%;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 .img-gradient {
     position: relative;
@@ -117,7 +119,7 @@
     height: 100%;
     display: inline-block;
     border-radius: 14px 14px 0 0;
-    background: linear-gradient(45deg, #0000000c 0%, #ffffff00 100%);
+    background: linear-gradient(45deg, #00000005 0%, #ffffff00 100%);
     // background: linear-gradient(45deg, #007bff29 0%, #ffffff00 100%);
     // background: radial-gradient(circle, rgba(255,255,255,0) 35%, rgb(24, 154, 255, 0.28) 100%);
 }
@@ -158,6 +160,9 @@
         opacity: 0;
     }
     .img-gradient:hover .project-modal-text {
+        opacity: 1;
+    }
+    .project-modal-text:focus-within {
         opacity: 1;
     }
 }

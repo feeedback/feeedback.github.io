@@ -2,7 +2,6 @@
 name: Minesweeper
 tools:
     [
-        HTML/CSS,
         JS,
         React,
         Responsive design,
