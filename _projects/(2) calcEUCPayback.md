@@ -10,7 +10,7 @@ tools:
         Semantic HTML,
         Accessibility,
     ]
-image: './assets/project-calcEUCPayback.webp'
+image: './assets/img/projects/project-calcEUCPayback'
 description: Калькулятор окупаемости моноколеса. Чистый JS. Возможность плавной смены цветовой схемы. Семантическая вёрстка, адаптивный и доступный дизайн.
 demo_url: 'https://feeedback.github.io/calcEUCPayback/'
 source_url: 'https://github.com/feeedback/calcEUCPayback'

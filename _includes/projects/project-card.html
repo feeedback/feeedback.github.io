@@ -2,15 +2,23 @@
   <div class="project card text-dark">
     {%- if project_img -%}
     <div class="img-gradient">
-      <!-- <picture>
-        <source srcset="logo-768.png 768w, logo-768-1.5x.png 1.5x">
-        <source srcset="logo-480.png, logo-480-2x.png 2x">
-        <img src="logo-320.png" alt="logo">
-      </picture> -->
-      <img id="{{ project_id }}-img" class="card-img-top" src="{{ project_img }}"
-        alt="{{ project_name }}" aspectratio="20x13" loading="lazy" />
-      <h4 class="project-modal-text"><a href="{{ project_demo_url }}" tabindex="-1"><button
-            class="btn btn-primary my-btn-primary">&gt; Watch demo &lt;</button></a></h4>
+
+      <picture>
+        {% assign widthWindow = "360,375,411,580,768,992,1200,4000" | split: ',' %}
+        {% assign forWidthProject = "272,312,327,363,492,672,445,349" | split: ',' %}
+        {% for width in forWidthProject %}
+        <source srcset="{{ project_img }}_{{ width }}w.webp {{ width }}w"
+          media="(max-width: {{ widthWindow[forloop.index0] }}px)">
+        {% endfor %}
+
+        <img id="{{ project_id }}-img" class="card-img-top"
+          src="{{ project_img }}_312w.webp" alt="{{ project_name }}" aspectratio="20x13"
+          loading="lazy" />
+      </picture>
+
+      <h4 class="project-modal-text"><a href="{{ project_demo_url }}"
+          tabindex="-1"><button class="btn btn-primary my-btn-primary">&gt; Watch demo
+            &lt;</button></a></h4>
     </div>
     {%- endif -%}
 

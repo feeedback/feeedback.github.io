@@ -10,7 +10,7 @@ tools:
         Grid,
         CSS Variables,
     ]
-image: './assets/project-minesweeper.webp'
+image: '/assets/img/projects/project-minesweeper'
 description: Полнофункциональная игра Сапёр. Была создана в процессе изучения React. Семантическая вёрстка, резиновый адаптивный макет, доступный с клавиатуры дизайн.
 demo_url: 'https://feeedback.github.io/minesweeper-project/'
 source_url: 'https://github.com/feeedback/minesweeper-project'
