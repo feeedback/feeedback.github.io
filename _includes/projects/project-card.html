@@ -2,6 +2,11 @@
   <div class="project card text-dark">
     {%- if project_img -%}
     <div class="img-gradient">
+      <!-- <picture>
+        <source srcset="logo-768.png 768w, logo-768-1.5x.png 1.5x">
+        <source srcset="logo-480.png, logo-480-2x.png 2x">
+        <img src="logo-320.png" alt="logo">
+      </picture> -->
       <img id="{{ project_id }}-img" class="card-img-top" src="{{ project_img }}"
         alt="{{ project_name }}" aspectratio="20x13" loading="lazy" />
       <h4 class="project-modal-text"><a href="{{ project_demo_url }}" tabindex="-1"><button
@@ -16,16 +21,16 @@
     чтобы показать 3+ фото, как выглядит проект под разными устройствами -->
 
     <div class=" card-body pt-2">
-      <h5 id="{{ project_id }}-name" class="card-title mt-2 mb-3 text-center">
+      <h5 id="{{ project_id }}-name" class="card-title mt-2 text-center">
         {{ project_name }}
       </h5>
 
-      <p id="{{ project_id }}-desc" class="card-text">{{ project_desc }}
+      <p id="{{ project_id }}-desc" class="card-text card-desc">{{ project_desc }}
         <a href="{{ project_source_url }}" class="my-btn text-dark d-inline-block">
           <cite title="Github repository"><span class="d-inline-block"><i
                 class="icon-github"></i>Source</span></cite></a>
       </p>
-      <p id="{{ project_id }}-tools" class="card-text">
+      <p id="{{ project_id }}-tools" class="card-text card-tools">
         {%- for tool in project_tools -%}
         <span class="badge border">{{ tool }}</span>&thinsp;
         {%- endfor -%}

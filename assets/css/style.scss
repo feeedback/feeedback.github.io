@@ -176,9 +176,10 @@
     line-height: 1em;
     color: #0072ed;
 }
-#minesweeper-desc {
-    font-size: 1em !important;
-}
+
+// .card-text {
+//     font-size: 0.9rem;
+// }
 .links-project {
     column-gap: 2em;
 }
@@ -188,5 +189,16 @@
     background-color: #007bffb8;
     border-color: #007bff29;
 }
-
+.card-title {
+    margin-bottom: 0.8rem;
+}
+.card-body {
+    padding: 1em;
+}
+.card-desc {
+    padding-left: 0.4em;
+}
+.card-tools {
+    text-align: center;
+}
 @import 'portfolYOU';

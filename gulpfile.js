@@ -7,9 +7,40 @@ const htmlmin = require('gulp-htmlmin');
 const terser = require('gulp-terser');
 const size = require('gulp-size');
 const webp = require('gulp-webp');
-
 const fs = require('fs').promises;
 const glob = require('glob');
+
+const imageResize = require('gulp-image-resize');
+const rename = require('gulp-rename');
+
+// function resizeAvatar(cb) {
+//     [250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800].forEach(
+//         function(size) {
+//             src('_site/**/*.{jpg,jpeg,png}')
+//                 .pipe(imageResize({ width: size }))
+//                 .pipe(
+//                     rename((path) => {
+//                         path.basename = `${path.basename}@${size}w`;
+//                     })
+//                 )
+//                 .pipe(dest('_site'));
+//         }
+//     );
+//     cb();
+// }
+// function resizeProjectImage(cb) {
+//     [100, 200, 250, 300, 350, 400, 450, 500, 550].forEach(function(size) {
+//         src('_site/**/*.{jpg,jpeg,png}')
+//             .pipe(imageResize({ width: size }))
+//             .pipe(
+//                 rename((path) => {
+//                     path.basename = `${path.basename}@${size}w`;
+//                 })
+//             )
+//             .pipe(dest('_site'));
+//     });
+//     cb();
+// }
 
 const path = {
     html: ['*.html', '_includes/*.html', '_layouts/*.html'],
@@ -35,24 +66,24 @@ function browserSyncInit(cb) {
             baseDir: '_site',
         },
     });
-    return cb();
+    cb();
 }
 function browserSyncReload(cb) {
     bs.reload();
-    return cb();
+    cb();
 }
 
 const minifyCss = (cb) => {
     src('_site/**/*.css')
         .pipe(cleanCSS())
         .pipe(dest('_site'));
-    return cb();
+    cb();
 };
 const minifyHtml = (cb) => {
     src('_site/**/*.html')
         .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
         .pipe(dest('_site'));
-    return cb();
+    cb();
 };
 const minifyJs = (cb) => {
     src('_site/**/*.js')
@@ -64,19 +95,22 @@ const minifyJs = (cb) => {
         )
         .pipe(dest('_site'));
 
-    return cb();
+    cb();
 };
-const minifyImage = async (cb) => {
+const minifyImage = (cb) => {
     src('_site/**/*.{jpg,png}')
-        .pipe(webp({ quality: 92, method: 6 }))
+        .pipe(webp({ quality: 90, method: 6 }))
         .pipe(dest('_site'));
+    cb();
+};
 
-    // glob('_site/**/*.{jpg,png}', {}, async (err, files) => {
-    //     if (err) {
-    //         console.error(err);
-    //     }
-    //     await Promise.all(files.map((file) => fs.unlink(file)));
-    // });
+const deleteSourceImage = (cb) => {
+    glob('_site/**/*.{jpg,png}', {}, (err, files) => {
+        if (err) {
+            console.error(err);
+        }
+        setTimeout(() => Promise.all(files.map((file) => fs.unlink(file))), 1000);
+    });
     cb();
 };
 
@@ -85,33 +119,28 @@ const printSize = (cb) => {
     src(`_site/**/*.css`).pipe(size({ title: 'css' }));
     src(`_site/**/*.js`).pipe(size({ title: 'js' }));
     src(`_site/**/*.webp`).pipe(size({ title: 'webp' }));
-    src(`_site/**/*.jpg`).pipe(size({ title: 'jpg' }));
-    src(`_site/**/*.png`).pipe(size({ title: 'png' }));
     src(`_site/**/*.ico`).pipe(size({ title: 'ico' }));
     cb();
 };
 
 const jekyllBuild = (cb) => {
     execSync('bundle exec jekyll build');
-    return cb();
+    cb();
 };
+
+exports.afterBuild = series(
+    jekyllBuild,
+    parallel(minifyCss, minifyHtml, minifyJs, series(minifyImage, deleteSourceImage)),
+    printSize
+);
 
 const watchAll = (cb) => {
     watch(
         '.',
         { ignored: '_site', delay: 100, awaitWriteFinish: true },
-        series(
-            jekyllBuild,
-            series(parallel(minifyCss, minifyHtml, minifyJs, minifyImage), printSize),
-            browserSyncReload
-        )
+        series(jekyllBuild, exports.afterBuild, browserSyncReload)
     );
-    // gulp.watch(path.scss, ['sass']);
-    return cb();
+    cb();
 };
 
-exports.afterBuild = series(
-    parallel(minifyCss, minifyHtml, minifyJs, minifyImage),
-    printSize
-);
 exports.default = series(browserSyncInit, watchAll);
