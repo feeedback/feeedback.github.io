@@ -13,7 +13,8 @@ const webp = require('gulp-webp');
 
 const imageResize = require('gulp-image-resize');
 const rename = require('gulp-rename');
-
+const imagemin = require('gulp-imagemin');
+const pngToJpeg = require('png-to-jpeg');
 // const path = {
 //     html: ['*.html', '_includes/*.html', '_layouts/*.html'],
 //     scss: ['scss/**/*.scss'],
@@ -35,7 +36,10 @@ const rename = require('gulp-rename');
 // const forWidthAvatar = [320, 360, 375, 411, 543, 580, 768, 992, 1200];
 const resizeAvatar = (cb) => {
     [203, 236, 249, 280, 372, 303, 175, 255, 315].forEach((size) => {
-        src('_data/img_src/**/avatar.{jpg,jpeg,png}')
+        src([
+            '_data/img_src/**/avatar.{jpg,jpeg,png}',
+            '_data/img_src/**/!*_fallback.{jpg,jpeg,png}',
+        ])
             .pipe(imageResize({ width: size }))
             .pipe(rename({ suffix: `_${size}w` }))
             .pipe(dest('_data/img_src'));
@@ -47,7 +51,10 @@ const resizeAvatar = (cb) => {
 const resizeProjectImage = (cb) => {
     // for [320w, 360w, 375w, 411w, 580w+, 768w+, 2X 992w+, 3X 1200w+]
     [272, 312, 327, 363, 492, 672, 445, 349].forEach((size) => {
-        src('_data/img_src/projects/project-*+([^0-9][^w]).{jpg,jpeg,png}')
+        src([
+            '_data/img_src/projects/project-*+([^0-9][^w]).{jpg,jpeg,png}',
+            '_data/img_src/**/!*_fallback.{jpg,jpeg,png}',
+        ])
             .pipe(imageResize({ width: size }))
             .pipe(rename({ suffix: `_${size}w` }))
             .pipe(dest('_data/img_src/projects'));
@@ -57,8 +64,32 @@ const resizeProjectImage = (cb) => {
 const resizeImage = series(resizeAvatar, resizeProjectImage);
 
 const minifyImage = (cb) => {
-    src('_data/img_src/**/*_*.{jpg,jpeg,png}')
+    src([
+        '_data/img_src/**/*_*.{jpg,jpeg,png}',
+        '_data/img_src/**/!*_fallback.{jpg,jpeg,png}',
+    ])
         .pipe(webp({ quality: 92, method: 6 }))
+        .pipe(dest('assets/img'));
+    cb();
+};
+const minifyImageJPGForFallback = (cb) => {
+    const defaultWidth = 312;
+    src(
+        [
+            '_data/img_src/**/avatar.{jpg,jpeg,png}',
+            '_data/img_src/**/project-*+([^0-9][^w]).{jpg,jpeg,png}',
+            '_data/img_src/**/!*_fallback.{jpg,jpeg,png}',
+        ]
+        //
+    )
+        .pipe(imageResize({ width: defaultWidth }))
+        .pipe(
+            imagemin({
+                plugins: [pngToJpeg({ quality: 100 })],
+            })
+        )
+        .pipe(imagemin([imagemin.mozjpeg({ quality: 80, progressive: true })]))
+        .pipe(rename({ suffix: `_fallback`, extname: '.jpg' }))
         .pipe(dest('assets/img'));
     cb();
 };
@@ -132,7 +163,11 @@ const trueSyncSeries = (...tasks) => {
     };
 };
 
-const beforeBuild = trueSyncSeries('resizeImage', 'minifyImage');
+const beforeBuild = trueSyncSeries(
+    'resizeImage',
+    'minifyImage',
+    'minifyImageJPGForFallback'
+);
 const afterBuild = parallel(minifyCss, minifyHtml, minifyJs);
 const build = trueSyncSeries('beforeBuild', 'jekyllBuild', 'afterBuild');
 
@@ -159,6 +194,7 @@ const watchAll = (cb) => {
 
 exports.resizeImage = resizeImage;
 exports.minifyImage = minifyImage;
+exports.minifyImageJPGForFallback = minifyImageJPGForFallback;
 
 exports.beforeBuild = beforeBuild;
 exports.jekyllBuild = jekyllBuild;

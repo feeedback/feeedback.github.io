@@ -3,17 +3,17 @@
     {%- if project_img -%}
     <div class="img-gradient">
 
-      <picture>
+      <picture>        
         {% assign widthWindow = "360,375,411,580,768,992,1200,4000" | split: ',' %}
         {% assign forWidthProject = "272,312,327,363,492,672,445,349" | split: ',' %}
         {% for width in forWidthProject %}
         <source srcset="{{ project_img }}_{{ width }}w.webp {{ width }}w"
           media="(max-width: {{ widthWindow[forloop.index0] }}px)">
         {% endfor %}
-
+        <source srcset="{{ project_img }}_fallback.jpg" type="image/jpeg">
         <img id="{{ project_id }}-img" class="card-img-top"
-          src="{{ project_img }}_312w.webp" alt="{{ project_name }}" aspectratio="20x13"
-          loading="lazy" />
+          src="{{ project_img }}_fallback.jpg" alt="{{ project_name }}"
+          aspectratio="20x13" loading="lazy" />
       </picture>
 
       <h4 class="project-modal-text"><a href="{{ project_demo_url }}"
