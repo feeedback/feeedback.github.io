@@ -3,11 +3,11 @@ name: Calculator EUC payback
 tools:
     [
         JS,
+        Gulp,
         Masonry Layout,
-        Color Theme,
+        Color Themes with CSS Variables,
         Customizable input range,
         Responsive design,
-        CSS Variables,
         Semantic HTML,
         Accessibility,
         ~100 in Lighthouse,
