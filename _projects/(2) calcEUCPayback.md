@@ -5,10 +5,12 @@ tools:
         JS,
         Masonry Layout,
         Color Theme,
-        CSS Variables,
+        Customizable input range,
         Responsive design,
+        CSS Variables,
         Semantic HTML,
         Accessibility,
+        ~100 in Lighthouse,
     ]
 image: './assets/img/projects/project-calcEUCPayback'
 description: Калькулятор окупаемости моноколеса. Чистый JS. Возможность плавной смены цветовой схемы. Семантическая вёрстка, адаптивный и доступный дизайн.
