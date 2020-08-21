@@ -5,6 +5,7 @@ tools:
         JS,
         Gulp,
         Masonry layout,
+        CSS3 (flex & animation),
         color themes,
         customizable input range,
         responsive design,
