@@ -4,16 +4,14 @@ tools:
     [
         JS,
         Gulp,
-        Masonry Layout,
-        Color Themes with CSS Variables,
-        Customizable input range,
-        Responsive design,
-        Semantic HTML,
-        Accessibility,
+        Masonry layout,
+        color themes,
+        customizable input range,
+        responsive design,
         ~100 in Lighthouse,
     ]
 image: './assets/img/projects/project-calcEUCPayback'
-description: Калькулятор окупаемости моноколеса. Чистый JS. Возможность плавной смены цветовой схемы. Семантическая вёрстка, адаптивный и доступный дизайн.
+description: Калькулятор окупаемости моноколеса. Кастомный дизайн элементов формы, выполненный в качестве подмодуля. Возможность плавной смены цветовой схемы. Семантическая вёрстка, адаптивный и доступный дизайн.
 demo_url: 'https://feeedback.github.io/calcEUCPayback/'
 source_url: 'https://github.com/feeedback/calcEUCPayback'
 ---
