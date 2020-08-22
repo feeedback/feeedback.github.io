@@ -1,0 +1,22 @@
+<section class="about" id="about">
+  <h2 class="title pt-3 p-2 m-0">About me</h2>
+  <div>
+    <article class="bio mb-4 px-3 text-center">
+      Hi I am {{ site.author.name }} :wave:,<br><br>
+
+      Sophomore at Indian Institute of Information Technology, Pune. IoT and Robotics
+      enthusiast now venturing into designing and web development. Using Keynote, Inkscape
+      and
+      Gimp for designing because #LongLiveOpenSource.
+    </article>
+
+    <article class="skills mb-5">
+      {% include about/skills.html title="Skills" source=site.data.programming-skills %}
+      <!-- {% include about/skills.html title="Other Skills" source=site.data.other-skills %} -->
+    </article>
+
+    <article class="timeline mb-4">
+      {% include about/timeline.html %}
+    </article>
+  </div>
+</section>

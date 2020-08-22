@@ -1,11 +1,11 @@
-- name: Inkscape
-  percentage: 80
-  color: success
+# - name: Inkscape
+#   percentage: 80
+#   color: success
 
-- name: Keynote & Power Point
-  percentage: 95
-  color: danger
+# - name: Keynote & Power Point
+#   percentage: 95
+#   color: danger
 
-- name: Designing
-  percentage: 80
-  color: secondary
+# - name: Designing
+#   percentage: 80
+#   color: secondary

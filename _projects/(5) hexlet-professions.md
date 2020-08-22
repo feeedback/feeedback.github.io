@@ -1,5 +1,5 @@
 ---
-name: Hexlet professions (Back-end and Front-end)
+name: Hexlet professions (backend & frontend)
 tools:
     [
         JS,
@@ -21,7 +21,7 @@ tools:
         Pug,
     ]
 image: '/assets/img/projects/project-hexlet-professions'
-description: Hexlet - лучшая платформа по обучению программированию. Я прошёл 5+ месяцев обучения, 385+ уроков, 318+ упражнений. Фундаментальный подход. Проработанные учебные программы.
+description: Hexlet - платформа по обучению программированию. Я прошёл 5+ месяцев обучения, 385+ уроков, 318+ упражнений. Фундаментальный подход.
 demo_url: 'https://ru.hexlet.io/u/risok?ref=53329'
 source_url: 'https://github.com/feeedback/hexlet-professions-backend'
 ---

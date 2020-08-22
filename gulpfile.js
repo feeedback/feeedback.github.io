@@ -60,7 +60,7 @@ const minifyImage = (cb) => {
         `${paths.imgRawData}/**/*_*.{jpg,jpeg,png}`,
         `${paths.imgRawData}/**/!*_fallback.{jpg,jpeg,png}`,
     ])
-        .pipe(webp({ quality: 92, method: 6 }))
+        .pipe(webp({ quality: 94, method: 6 }))
         .pipe(dest(paths.imgSrc));
     cb();
 };

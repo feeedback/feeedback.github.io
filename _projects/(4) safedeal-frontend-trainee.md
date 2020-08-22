@@ -5,7 +5,6 @@ tools:
         JS,
         Figma,
         React,
-        Create-react-app,
         API,
         responsive design,
         Grid fluid layout,

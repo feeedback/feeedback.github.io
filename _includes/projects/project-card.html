@@ -3,9 +3,9 @@
     {%- if project_img -%}
     <div class="img-gradient">
 
-      <picture>        
-        {% assign widthWindow = "360,375,411,580,768,992,1200,4000" | split: ',' %}
-        {% assign forWidthProject = "272,312,327,363,492,672,445,349" | split: ',' %}
+      <picture>
+        {% assign widthWindow = "360,375,411,580,992,1200,4000" | split: ',' %}
+        {% assign forWidthProject = "272,312,327,492,672,445,349" | split: ',' %}
         {% for width in forWidthProject %}
         <source srcset="{{ project_img }}_{{ width }}w.webp {{ width }}w"
           media="(max-width: {{ widthWindow[forloop.index0] }}px)">

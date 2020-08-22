@@ -5,7 +5,7 @@
     "main": "index.html",
     "scripts": {
         "watchGulp": "gulp",
-        "serveJekyll": "bundle exec jekyll serve -w",
+        "serveJekyll": "bundle exec jekyll serve -o -w -l",
         "deploy-gh-pages": "gh-pages -d _site",
         "build": "gulp build",
         "afterBuild": "gulp afterBuild",
