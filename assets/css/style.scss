@@ -296,13 +296,13 @@ main {
     font-family: Roboto;
 }
 .specialization {
-    border-bottom: 1px dashed #80808047;
+    // border-bottom: 1px dashed #80808047;
 }
 .social-link-block {
     border-bottom: 1px dashed #80808047;
 }
 main {
-    margin-top: 1rem;
+    // margin-top: 1rem;
 }
 @media (min-width: 768px) {
     .sticky-aside {
@@ -316,11 +316,16 @@ main {
         max-width: 300px;
         border-radius: 0 0 1em 1em;
         & #nav {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0rem;
         }
         & nav {
             margin-top: 1rem;
         }
+    }
+    #container {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
     .title {
         text-align: left;
