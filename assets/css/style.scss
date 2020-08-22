@@ -11,7 +11,7 @@
     font-size: 1.1rem;
 }
 #container {
-    max-width: min(303px, 80%);
+    max-width: min(303px, 90%);
 }
 @media screen and (min-width: 250px) and (max-width: 450px) {
     #container {
@@ -84,9 +84,11 @@
 /* gradient over image*/
 
 .img-gradient {
-    border-radius: 14px 14px 0 0;
     display: inline-block;
     width: 100%;
+
+    
+    border-radius: 14px 14px 0 0;
 
     &:after {
         display: inline-block;
@@ -289,11 +291,11 @@ main {
     max-width: 800px;
 }
 .circle-image {
-    border-radius: 0 0 1em 1em;
+    // border-radius: 0 0 1em 1em;
 }
 
 .text-muted {
-    font-family: Roboto;
+    // font-family: Roboto;
 }
 .specialization {
     // border-bottom: 1px dashed #80808047;
