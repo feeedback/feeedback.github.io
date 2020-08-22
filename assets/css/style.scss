@@ -16,7 +16,7 @@
 @media screen and (min-width: 250px) and (max-width: 450px) {
     #container {
         flex: 0 0 80%;
-        max-width: 80%;
+        max-width: min(280px, 90%);
     }
 }
 
@@ -87,7 +87,6 @@
     display: inline-block;
     width: 100%;
 
-    
     border-radius: 14px 14px 0 0;
 
     &:after {
@@ -184,8 +183,8 @@
 
 .badge {
     border-color: #cdd6e0 !important;
-    padding: 3.5px 0.45em 2.5px 0.45em;
-    border-radius: 1em;
+    padding: 3.5px 0.4em 1.5px 0.4em;
+    // border-radius: 1em;
     color: #0072ed;
     font-family: 'Roboto Regular', sans-serif;
     font-size: 14px;
@@ -304,7 +303,12 @@ main {
     border-bottom: 1px dashed #80808047;
 }
 main {
-    // margin-top: 1rem;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+}
+.about {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
 }
 @media (min-width: 768px) {
     .sticky-aside {
@@ -338,6 +342,8 @@ main {
     }
     main {
         margin-top: 2rem;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
     }
 }
 
