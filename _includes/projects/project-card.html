@@ -16,9 +16,12 @@
           aspectratio="20x13" loading="lazy" />
       </picture>
 
-      <h4 class="project-modal-text"><a href="{{ project_demo_url }}"
-          tabindex="-1"><button class="btn btn-primary my-btn-primary">&gt; Watch demo
-            &lt;</button></a></h4>
+      <h3 class="project-modal-text">
+        <a href="{{ project_demo_url }}"  title="Click and watch demo">
+          <span class="ribbon" name="Demo" aria-label="Demo">
+          </span>
+        </a>
+      </h3>
     </div>
     {%- endif -%}
 
@@ -34,7 +37,7 @@
       </h5>
 
       <p id="{{ project_id }}-desc" class="card-text card-desc">{{ project_desc }}
-        <a href="{{ project_source_url }}" class="my-btn text-dark d-inline-block">
+        <a href="{{ project_source_url }}" class="my-btn text-dark d-inline-block" title="Github repository">
           <cite title="Github repository"><span class="d-inline-block"><i
                 class="icon-github"></i>Source</span></cite></a>
       </p>
