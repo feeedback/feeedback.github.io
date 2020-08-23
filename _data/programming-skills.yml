@@ -1,11 +1,43 @@
-- name: HTML5/CSS3
-  percentage: 75
+- name: HTML5, CSS3
+  percentage: 90
   color: danger
 
-- name: Python
+- name: Responsive design, Semantic HTML
   percentage: 80
-  color: dark
+  color: danger
 
-- name: Python - Selenium
-  percentage: 70
+- name: Javascript, Node.js
+  percentage: 95
+  color: success
+
+- name: Git, GitHub
+  percentage: 65
+  color: success
+
+- name: Npm, Express.js, WebSocket
+  percentage: 85
+  color: success
+
+- name: React.js
+  percentage: 75
+  color: warning
+
+- name: Redux
+  percentage: 55
+  color: warning
+
+- name: Figma
+  percentage: 55
+  color: warning
+
+- name: Webpack, Gulp
+  percentage: 60
+  color: warning
+
+- name: Jest, Mocha, Chai
+  percentage: 55
+  color: info
+
+- name: Bash, pSQL
+  percentage: 55
   color: info

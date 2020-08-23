@@ -2,15 +2,11 @@
   <h2 class="title pt-3 p-2 m-0">About me</h2>
   <div>
     <article class="bio mb-4 px-3 text-center">
-      Hi I am {{ site.author.name }} :wave:,<br><br>
-
-      Sophomore at Indian Institute of Information Technology, Pune. IoT and Robotics
-      enthusiast now venturing into designing and web development. Using Keynote, Inkscape
-      and
-      Gimp for designing because #LongLiveOpenSource.
+      <!-- Hi, I am {{ site.author.name }} :wave:,<br><br> -->
+      {{ site.about_me }}
     </article>
 
-    <article class="skills mb-5">
+    <article class="skills mb-3">
       {% include about/skills.html title="Skills" source=site.data.programming-skills %}
       <!-- {% include about/skills.html title="Other Skills" source=site.data.other-skills %} -->
     </article>

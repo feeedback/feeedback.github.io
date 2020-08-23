@@ -6,10 +6,10 @@
     color: #007bff;
 ">Projects</h3>
 
-<div class="card-columns m-2 mt-5">
+  <div class="card-columns m-2 mt-5">
 
-  <!-- Remote Projects -->
-  <!-- {% for remote_project in page.remote_projects %}
+    <!-- Remote Projects -->
+    <!-- {% for remote_project in page.remote_projects %}
 
   {%- for repo in site.github.public_repositories -%}
   {%- if remote_project == repo.name -%}
@@ -33,31 +33,31 @@
 
   {% include projects/project-card.html %} -->
 
-  <!-- <script>getTools("{{ site.github.owner_name }}", "{{ remote_project }}")</script> -->
+    <!-- <script>getTools("{{ site.github.owner_name }}", "{{ remote_project }}")</script> -->
 
-  <!-- {% endfor %} -->
+    <!-- {% endfor %} -->
 
-  <!-- Local Projects -->
-  {% for project in site.projects %}
+    <!-- Local Projects -->
+    {% for project in site.projects %}
 
-  {%- assign project_type  = "local" -%}
-  {%- assign project_id    = project.name | slugify -%}
-  {%- assign project_img   = project.image -%}
-  {%- assign project_name  = project.name -%}
-  {%- assign project_desc  = project.description -%}
-  {%- assign project_tools = project.tools -%}
-  {%- assign project_source_url = project.source_url -%}
+    {%- assign project_type  = "local" -%}
+    {%- assign project_id    = project.name | slugify -%}
+    {%- assign project_img   = project.image -%}
+    {%- assign project_name  = project.name -%}
+    {%- assign project_desc  = project.description -%}
+    {%- assign project_tools = project.tools -%}
+    {%- assign project_source_url = project.source_url -%}
 
-  {%- if project.demo_url -%}
-  {%- assign project_demo_url = project.demo_url -%}
-  {%- else -%}
-  {%- assign project_demo_url = project.demo_url | relative_url -%}
-  {%- endif -%}
+    {%- if project.demo_url -%}
+    {%- assign project_demo_url = project.demo_url -%}
+    {%- else -%}
+    {%- assign project_demo_url = project.demo_url | relative_url -%}
+    {%- endif -%}
 
-  {% include projects/project-card.html %}
+    {% include projects/project-card.html %}
 
-  {% endfor %}
+    {% endfor %}
 
-</div>
+  </div>
 
 </section>
