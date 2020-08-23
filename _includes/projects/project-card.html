@@ -2,26 +2,25 @@
   <div class="project card text-dark">
     {%- if project_img -%}
     <div class="img-gradient">
+      
+      <a href="{{ project_demo_url }}" class="project-image-link"
+        title="Click and see {{ project_name }}" aria-label="{{ project_name }}">
+        <picture>
+          {% assign widthWindow = "360,375,411,580,992,1200,4000" | split: ',' %}
+          {% assign forWidthProject = "272,312,327,492,672,445,349" | split: ',' %}
+          {% for width in forWidthProject %}
+          <source srcset="{{ project_img }}_{{ width }}w.webp {{ width }}w"
+            media="(max-width: {{ widthWindow[forloop.index0] }}px)">
+          {% endfor %}
+          <source srcset="{{ project_img }}_fallback.jpg" type="image/jpeg">
+          <img id="{{ project_id }}-img" class="card-img-top"
+            src="{{ project_img }}_fallback.jpg" alt="{{ project_name }}"
+            aspectratio="20x13" loading="lazy" />
+        </picture>
+        <span class="ribbon" name="Demo" aria-label="Demo">
+        </span>
+      </a>
 
-      <picture>
-        {% assign widthWindow = "360,375,411,580,992,1200,4000" | split: ',' %}
-        {% assign forWidthProject = "272,312,327,492,672,445,349" | split: ',' %}
-        {% for width in forWidthProject %}
-        <source srcset="{{ project_img }}_{{ width }}w.webp {{ width }}w"
-          media="(max-width: {{ widthWindow[forloop.index0] }}px)">
-        {% endfor %}
-        <source srcset="{{ project_img }}_fallback.jpg" type="image/jpeg">
-        <img id="{{ project_id }}-img" class="card-img-top"
-          src="{{ project_img }}_fallback.jpg" alt="{{ project_name }}"
-          aspectratio="20x13" loading="lazy" />
-      </picture>
-
-      <h3 class="project-modal-text">
-        <a href="{{ project_demo_url }}"  title="Click and watch demo">
-          <span class="ribbon" name="Demo" aria-label="Demo">
-          </span>
-        </a>
-      </h3>
     </div>
     {%- endif -%}
 
@@ -32,12 +31,13 @@
     чтобы показать 3+ фото, как выглядит проект под разными устройствами -->
 
     <div class=" card-body pt-2">
-      <h5 id="{{ project_id }}-name" class="card-title mt-2 text-center">
+      <h3 id="{{ project_id }}-name" class="card-title mt-2 text-center">
         {{ project_name }}
-      </h5>
+      </h3>
 
       <p id="{{ project_id }}-desc" class="card-text card-desc">{{ project_desc }}
-        <a href="{{ project_source_url }}" class="my-btn text-dark d-inline-block" title="Github repository">
+        <a href="{{ project_source_url }}" class="my-btn text-dark d-inline-block"
+          title="Github repository">
           <cite title="Github repository"><span class="d-inline-block"><i
                 class="icon-github"></i>Source</span></cite></a>
       </p>
