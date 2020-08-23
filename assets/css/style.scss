@@ -4,10 +4,13 @@
 @import 'portfolYOU';
 
 .nav-my-link {
-    display: block;
     margin: 0 0.5rem;
-    font-size: 1.1rem;
     color: #0071eb;
+    font-size: 1.1rem;
+
+    height: 2rem;
+    display: flex;
+    align-items: center;
 }
 #container {
     max-width: min(303px, 90%);
@@ -284,7 +287,7 @@ main {
         z-index: 10;
     }
 }
-.timeline-body .timeline-item .date {
+.timeline-body .timeline-item .content .date {
     color: #6b737f;
 }
 .bio {
@@ -302,8 +305,18 @@ main {
 }
 .social-link-block {
     border-bottom: 1px dashed #80808047;
+    & .social {
+        display: inline-block;
+        width: 2.5rem;
+    }
 }
-
+footer {
+    .social {
+        display: inline-block;
+        width: 1.7rem;
+        height: 2rem;
+    }
+}
 body {
     align-items: center;
 }
@@ -353,7 +366,7 @@ html {
 }
 a:focus {
     outline: 2px solid #007bff;
-    outline-offset: 2px;
+    outline-offset: 1px;
 }
 .img-gradient .project-image-link:focus {
     outline-offset: -2px;
