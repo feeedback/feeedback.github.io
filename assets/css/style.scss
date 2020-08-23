@@ -118,8 +118,8 @@
         a {
             display: flex;
             position: relative;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
+            align-items: flex-end;
             // background: linear-gradient(
             //     135deg,
             //     rgba(255, 255, 255, 0) calc(100% - 90px),
@@ -226,48 +226,48 @@
     // }
 }
 .ribbon {
-    overflow: hidden;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
     background-color: transparent;
-    background-image: url(../img/ribbon.svg);
+    background-image: url(../img/ribbon.png);
     width: 100px;
     height: 100px;
-    /* overflow: hidden; */
-    // /* appearance: none; */
     background-size: contain;
     background-repeat: no-repeat;
     padding: 0;
     border: 0;
-    // background-color: #09ff004a;
-}
-.ribbon .ribbon-label {
-    transform: translateX(-50%) translateY(calc(50%)) rotateZ(-45deg) translateY(50%);
     position: absolute;
-    display: flex;
-    width: 141.5%;
-    /* sqrt in 2 * 100% */
-    text-transform: uppercase;
-    font-family: sans-serif;
-    bottom: 50%;
-    left: 50%;
-    height: 2em;
-    font-weight: bolder;
-    justify-content: center;
-    align-items: center;
-    // font-size: 1.2rem;
-    margin: 0;
-    padding: 0;
-    /* border: 0; */
-    /* OUTLINE: 0; */
-    box-sizing: border-box;
-    letter-spacing: 1px;
-    text-decoration: none;
-
-    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
-    transition: none;
+    right: -1px;
+    bottom: -1px;
+    // animation-duration: 6s;
+    // animation-name: pulse;
+    // animation-iteration-count: infinite;
+    
+    /* animation-timing-function: ease-out; */
+    // background-color: #09ff004a;
+    z-index: -1;
 }
+// .ribbon .ribbon-label {
+//     transform: translateX(-50%) translateY(calc(50%)) rotateZ(-45deg) translateY(50%);
+//     position: absolute;
+//     display: flex;
+//     width: 141.5%;
+//     /* sqrt in 2 * 100% */
+//     text-transform: uppercase;
+//     font-family: sans-serif;
+//     bottom: 50%;
+//     left: 50%;
+//     height: 2em;
+//     font-weight: bolder;
+//     justify-content: center;
+//     align-items: center;
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     letter-spacing: 1px;
+//     text-decoration: none;
+
+//     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+//     transition: none;
+// }
 .card-title {
     margin-bottom: 0.8rem;
 }
