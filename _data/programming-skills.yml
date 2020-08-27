@@ -1,5 +1,5 @@
 - name: HTML5, CSS3
-  percentage: 90
+  percentage: 85
   color: danger
 
 - name: Responsive design, Semantic HTML
@@ -15,15 +15,15 @@
   color: success
 
 - name: Npm, Express.js, WebSocket
-  percentage: 85
+  percentage: 80
   color: success
 
 - name: React.js
-  percentage: 75
+  percentage: 70
   color: warning
 
 - name: Redux
-  percentage: 55
+  percentage: 35
   color: warning
 
 - name: Figma
@@ -31,13 +31,13 @@
   color: warning
 
 - name: Webpack, Gulp
-  percentage: 60
+  percentage: 50
   color: warning
 
 - name: Jest, Mocha, Chai
-  percentage: 55
+  percentage: 50
   color: info
 
 - name: Bash, pSQL
-  percentage: 55
+  percentage: 35
   color: info
