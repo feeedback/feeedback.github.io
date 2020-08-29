@@ -4,16 +4,18 @@
   {% for skill in include.source %}
   <div class="card skill-progress">
 
-    <p>{{ skill.name }}</p>
+    <label id="skill_label_{{ forloop.index }}">{{ skill.name }}</label>
     <!-- <div
       class="skill-bar skill-bar-{{ skill.color }} skill-{{ skill.percentage }} wow animated slideInLeft"
       data-wow-delay="{{ forloop.index | divided_by: 20.0 }}">
       <span>{{ skill.percentage }}%</span>
     </div> -->
     <div class="progress">
-      <div class="progress-bar bg-{{ skill.color }} progress-bar-striped wow animated slideInLeft"
+      <div
+        class="progress-bar bg-{{ skill.color }} progress-bar-striped wow animated slideInLeft"
         role="progressbar" style="width: {{ skill.percentage }}%"
-        aria-valuenow="{{ skill.percentage }}" aria-valuemin="0" aria-valuemax="100">
+        aria-valuenow="{{ skill.percentage }}" aria-valuemin="0" aria-valuemax="100"
+        aria-labelledby="skill_label_{{ forloop.index }}">
       </div>
     </div>
 

@@ -138,7 +138,8 @@
 
 .badge {
     border-color: #cdd6e0 !important;
-    padding: 3.5px 0.4em 1.5px 0.4em;
+    padding: 3px 5px 2px 5px;
+    margin: 0 2px;
     // border-radius: 1em;
     color: #0072ed;
     font-family: 'Roboto Regular', sans-serif;
@@ -218,7 +219,7 @@
 .skill-progress {
     margin-bottom: 1.1rem !important;
     border: none;
-    & > p {
+    & > label {
         font-size: 15px;
         margin-bottom: 0;
         line-height: 1em;
