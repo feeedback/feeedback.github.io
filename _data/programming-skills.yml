@@ -11,7 +11,7 @@
   color: success
 
 - name: Git, GitHub
-  percentage: 65
+  percentage: 55
   color: success
 
 - name: Npm, Express.js, WebSocket
@@ -26,18 +26,18 @@
   percentage: 35
   color: warning
 
-- name: Figma
-  percentage: 55
+- name: Figma, Webpack, Gulp, PostCSS
+  percentage: 50
   color: warning
 
-- name: Webpack, Gulp
+- name: Bootstrap, Font Awesome, Lodash, Animate, d3
   percentage: 50
   color: warning
 
 - name: Jest, Mocha, Chai
-  percentage: 50
+  percentage: 40
   color: info
 
-- name: Bash, pSQL
+- name: Bash, pSQL, MongoDB
   percentage: 35
   color: info

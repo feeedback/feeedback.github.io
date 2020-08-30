@@ -170,6 +170,9 @@
 /* .card-text {*/
 /*     font-size: 0.9rem;*/
 /* }*/
+.icon-mr-1::before {
+    margin-right: 2px;
+}
 
 .links-project {
     column-gap: 2em;
@@ -243,7 +246,7 @@
     margin-bottom: 1.1rem !important;
     border: none;
     & > label {
-        font-size: 15px;
+        font-size: 16px;
         margin-bottom: 0;
         line-height: 1em;
         padding-bottom: 3px;
@@ -251,6 +254,9 @@
 }
 .progress {
     height: 6px;
+}
+.progress-bar {
+    width: 1px;
 }
 .skills .card-columns {
     column-count: 1;
