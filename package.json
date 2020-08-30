@@ -23,6 +23,7 @@
     "homepage": "https://github.com/feeedback/feeedback.github.io#readme",
     "devDependencies": {
         "@fullhuman/postcss-purgecss": "^2.3.0",
+        "animate.css": "^3.7.0",
         "autoprefixer": "^9.8.6",
         "bootstrap": "^4.5.2",
         "browser-sync": "^2.26.12",

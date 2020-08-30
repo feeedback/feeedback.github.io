@@ -30,6 +30,8 @@ const paths = {
     build: '_site',
     bootstrapFrom: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
     bootstrapTo: `_site/assets/css/bootstrap/`,
+    animateCSSFrom: 'node_modules/animate.css/animate.min.css',
+    animateCSSTo: `_site/assets/css/animate.css/`,
 };
 
 // const forWidthAvatar = [320, 360, 375, 411, 543, 580, 768, 992, 1200];
@@ -90,6 +92,10 @@ const browserSyncReload = (cb) => {
 
 const copyBootstrapCSSToProject = (cb) => {
     src(paths.bootstrapFrom).pipe(dest(paths.bootstrapTo));
+    cb();
+};
+const copyAnimateCSSToProject = (cb) => {
+    src(paths.animateCSSFrom).pipe(dest(paths.animateCSSTo));
     cb();
 };
 
@@ -173,7 +179,7 @@ const afterBuild = parallel(minifyCss, minifyHtml, minifyJs);
 const build = trueSyncSeries(
     'beforeBuild',
     'jekyllBuild',
-    'copyBootstrapCSSToProject',
+    'copyLibsCSSToProject',
     'afterBuild'
 );
 
@@ -224,7 +230,10 @@ exports.resizeImage = resizeImage;
 exports.minifyImage = minifyImage;
 exports.minifyImageJPGForFallback = minifyImageJPGForFallback;
 
-exports.copyBootstrapCSSToProject = copyBootstrapCSSToProject;
+exports.copyLibsCSSToProject = parallel(
+    copyBootstrapCSSToProject,
+    copyAnimateCSSToProject
+);
 exports.minifyStyleDev = series(minifyCssDev, minifyScssDev);
 
 exports.beforeBuild = beforeBuild;
