@@ -14,8 +14,8 @@
   <!-- <div id="container" class="my-3 col-sm-8 col-10 col-md-12"> -->
   <div id="container">
     <picture>
-      {% assign widthWindow = "360,375,411,543,580,768,992,1200" | split: ',' %}
-      {% assign forWidthAvatar = "203,236,249,280,372,303,175,255" | split: ',' %}
+      {% assign widthWindow = "360,375,451,768,992,1200" | split: ',' %}
+      {% assign forWidthAvatar = "268,280,303,175,200,256" | split: ',' %}
       {% for width in forWidthAvatar %}
       <source srcset="{{ site.author.image }}_{{ width }}w.webp {{ width }}w"
         media="(max-width: {{ widthWindow[forloop.index0] }}px)">
@@ -29,8 +29,7 @@
     {{ site.summary }}
   </p> -->
 
-  <nav
-    class="d-flex mt-3 justify-content-center align-items-center wow animated zoomIn"
+  <nav class="d-flex mt-2 justify-content-center align-items-center wow animated zoomIn"
     data-wow-duration="0.3s">
     <a class="nav-item nav-my-link" href="#about">About</a>|
     <a class="nav-item nav-my-link" href="#projects">Projects</a>

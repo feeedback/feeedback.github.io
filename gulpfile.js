@@ -34,9 +34,9 @@ const paths = {
     animateCSSTo: `_site/assets/css/animate.css/`,
 };
 
-// const forWidthAvatar = [320, 360, 375, 411, 543, 580, 768, 992, 1200];
+// const forWidthAvatar = [360, 375, 451, 768, 992, 1200];
 const resizeAvatar = (cb) => {
-    [203, 236, 249, 280, 372, 303, 175, 255, 315].forEach((size) => {
+    [268, 280, 303, 175, 200, 256].forEach((size) => {
         src(`${paths.imgRawData}/**/avatar.{jpg,jpeg,png}`)
             .pipe(imageResize({ width: size }))
             .pipe(rename({ suffix: `_${size}w` }))
