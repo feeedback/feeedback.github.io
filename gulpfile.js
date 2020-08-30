@@ -28,6 +28,8 @@ const paths = {
     imgSrc: 'assets/img',
     cssSrc: 'assets/css',
     build: '_site',
+    bootstrapFrom: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
+    bootstrapTo: `_site/assets/css/bootstrap/bootstrap.min.css`,
 };
 
 // const forWidthAvatar = [320, 360, 375, 411, 543, 580, 768, 992, 1200];
@@ -61,7 +63,7 @@ const minifyImage = (cb) => {
         `${paths.imgRawData}/**/*_*.{jpg,jpeg,png}`,
         `${paths.imgRawData}/**/!*_fallback.{jpg,jpeg,png}`,
     ])
-        .pipe(webp({ quality: 94, method: 6 }))
+        .pipe(webp({ quality: 92, method: 6 }))
         .pipe(dest(paths.imgSrc));
     cb();
 };
@@ -83,6 +85,11 @@ const minifyImageJPGForFallback = (cb) => {
 
 const browserSyncReload = (cb) => {
     bs.reload();
+    cb();
+};
+
+const copyBootstrapCSSToProject = (cb) => {
+    src(paths.bootstrapFrom).pipe(dest(paths.bootstrapTo));
     cb();
 };
 
@@ -162,7 +169,12 @@ const beforeBuild = trueSyncSeries(
     'minifyImageJPGForFallback'
 );
 const afterBuild = parallel(minifyCss, minifyHtml, minifyJs);
-const build = trueSyncSeries('beforeBuild', 'jekyllBuild', 'afterBuild');
+const build = trueSyncSeries(
+    'beforeBuild',
+    'jekyllBuild',
+    'copyBootstrapCSSToProject',
+    'afterBuild'
+);
 
 const browserSyncInit = (cb) => {
     bs.init({ server: { baseDir: paths.build } });
@@ -211,6 +223,7 @@ exports.resizeImage = resizeImage;
 exports.minifyImage = minifyImage;
 exports.minifyImageJPGForFallback = minifyImageJPGForFallback;
 
+exports.copyBootstrapCSSToProject = copyBootstrapCSSToProject;
 exports.minifyStyleDev = series(minifyCssDev, minifyScssDev);
 
 exports.beforeBuild = beforeBuild;
