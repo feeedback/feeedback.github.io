@@ -21,6 +21,7 @@ const postcssCustomProperties = require('postcss-custom-properties');
 const postcssCalc = require('postcss-calc');
 const postcssMergeRules = require('postcss-merge-rules');
 const postcssScssParser = require('postcss-scss');
+const purgecss = require('@fullhuman/postcss-purgecss');
 
 const paths = {
     imgRawData: '_data/img_src',
@@ -95,6 +96,7 @@ const minifyCss = (cb) => {
         cssDeclarationSorter({ order: 'concentric-css' }),
         autoprefixer(),
         cssnano(),
+        purgecss({ content: ['./_site/**/*.html'] }),
     ];
 
     src(`${paths.build}/**/*.css`)
