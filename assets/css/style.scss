@@ -257,6 +257,7 @@
 }
 .progress-bar {
     width: 1px;
+    transition: width 1s ease;
 }
 .skills .card-columns {
     column-count: 1;
