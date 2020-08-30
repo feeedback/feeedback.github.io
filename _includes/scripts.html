@@ -20,8 +20,11 @@
 <!-- wow.js CDN & Activation -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js" defer></script>
 
+<!-- my animation -->
+<script src="{{ './assets/js/scroll_animation.js' | relative_url }}" defer></script>
+
 <script>
-    document.addEventListener("DOMContentLoaded", () => new WOW().init({ offset: -100 }))
+    document.addEventListener("DOMContentLoaded", () => new WOW().init({ offset: 0, delay: 0 }))
 </script>
 
 <!-- Initialize all tooltips -->

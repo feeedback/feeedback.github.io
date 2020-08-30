@@ -20,7 +20,7 @@ tools:
         pSQL,
         Pug,
     ]
-image: '/assets/img/projects/project-hexlet-professions'
+image: './assets/img/projects/project-hexlet-professions'
 description: Hexlet - платформа по обучению программированию. Я прошёл 5+ месяцев обучения, 385+ уроков, 318+ упражнений. Фундаментальный подход.
 demo_url: 'https://ru.hexlet.io/u/risok?ref=53329'
 source_url: 'https://github.com/feeedback/hexlet-professions-backend'

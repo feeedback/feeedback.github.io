@@ -11,9 +11,8 @@
       <span>{{ skill.percentage }}%</span>
     </div> -->
     <div class="progress">
-      <div
-        class="progress-bar bg-{{ skill.color }} progress-bar-striped wow animated slideInLeft"
-        role="progressbar" style="width: {{ skill.percentage }}%"
+      <div class="progress-bar bg-{{ skill.color }} progress-bar-striped scroll-transition"
+        role="progressbar" data-width="{{ skill.percentage }}%"
         aria-valuenow="{{ skill.percentage }}" aria-valuemin="0" aria-valuemax="100"
         aria-labelledby="skill_label_{{ forloop.index }}">
       </div>
