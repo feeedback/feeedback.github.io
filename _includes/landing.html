@@ -14,9 +14,9 @@
   <!-- <div id="container" class="my-3 col-sm-8 col-10 col-md-12"> -->
   <div id="container">
     <picture>
-      {% assign widthWindow = "360,375,451,768,992,1200" | split: ',' %}
-      {% assign forWidthAvatar = "268,280,303,175,200,256" | split: ',' %}
-      {% for width in forWidthAvatar %}
+      {% assign widthWindow = "375,451,768,992,1200,1400" | split: ',' %}
+      {% assign forWdAvatar = "268,280,303,175,200,256" | split: ',' %}
+      {% for width in forWdAvatar %}
       <source srcset="{{ site.author.image }}_{{ width }}w.webp {{ width }}w"
         media="(max-width: {{ widthWindow[forloop.index0] }}px)">
       {% endfor %}
