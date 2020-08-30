@@ -29,7 +29,7 @@ const paths = {
     cssSrc: 'assets/css',
     build: '_site',
     bootstrapFrom: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
-    bootstrapTo: `_site/assets/css/bootstrap/bootstrap.min.css`,
+    bootstrapTo: `_site/assets/css/bootstrap/`,
 };
 
 // const forWidthAvatar = [320, 360, 375, 411, 543, 580, 768, 992, 1200];
@@ -105,6 +105,7 @@ const minifyCss = (cb) => {
         purgecss({
             content: ['./_site/**/*.html'],
             css: [`${paths.build}/**/*.css`, `${paths.build}/**/!*font*.css`],
+            whitelist: ['html', 'body'],
         }),
         cssnano(),
     ];
