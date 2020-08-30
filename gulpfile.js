@@ -95,8 +95,11 @@ const minifyCss = (cb) => {
         postcssMergeRules(),
         cssDeclarationSorter({ order: 'concentric-css' }),
         autoprefixer(),
+        purgecss({
+            content: ['./_site/**/*.html'],
+            css: [`${paths.build}/**/*.css`, `${paths.build}/**/!*font*.css`],
+        }),
         cssnano(),
-        purgecss({ content: ['./_site/**/*.html'] }),
     ];
 
     src(`${paths.build}/**/*.css`)

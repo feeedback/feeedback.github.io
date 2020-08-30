@@ -90,11 +90,11 @@
 *:focus > .icon-github:before {
     color: #333333;
 }
-.icon-mail-alt:before {
+.icon-email:before {
     content: '\f0e0';
 }
-*:hover > .icon-mail-alt:before,
-*:focus > .icon-mail-alt:before {
+*:hover > .icon-email:before,
+*:focus > .icon-email:before {
     color: #0f9a2e;
 }
 .icon-linkedin:before {

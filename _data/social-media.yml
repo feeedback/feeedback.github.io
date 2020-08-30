@@ -3,7 +3,7 @@
 
 email:
     url: 'mailto:'
-    icon: fas icon-mail-alt
+    icon: icon-email
     color: 'db4437'
 
 facebook:
