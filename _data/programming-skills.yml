@@ -15,7 +15,7 @@
   color: success
 
 - name: Npm, Express.js, WebSocket
-  percentage: 80
+  percentage: 65
   color: success
 
 - name: React.js
@@ -39,5 +39,5 @@
   color: info
 
 - name: Bash, pSQL, MongoDB
-  percentage: 35
+  percentage: 30
   color: info

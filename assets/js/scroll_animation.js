@@ -18,3 +18,4 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('orientationchange', () => runTransition(isShownElements()));
     window.addEventListener('resize', () => runTransition(isShownElements()));
 });
+clg;
