@@ -9,6 +9,7 @@ tools:
         MongoDB,
         MongoDB Atlas,
         Mongoose,
+        Glitch
     ]
 image: './assets/img/projects/project-exercise-tracker-db'
 description: Один из проектов, выполненных при изучении работы с базами данных и сервером на FreeCodeCamp. Планировщик упражнений.
