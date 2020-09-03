@@ -8,7 +8,7 @@ tools:
         color themes,
         customizable input range,
         responsive design,
-        ~100 in Lighthouse,
+        Lighthouse~100,
     ]
 image: './assets/img/projects/project-calcEUCPayback'
 description: Калькулятор окупаемости моноколеса. Кастомный дизайн элементов формы, выполненный в качестве подмодуля. Возможность плавной смены цветовой схемы.

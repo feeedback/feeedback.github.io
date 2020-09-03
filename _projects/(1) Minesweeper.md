@@ -11,7 +11,7 @@ tools:
         accessibility,
         semantic HTML,
         CSS Variables,
-        ~100 in Lighthouse,
+        Lighthouse~100,
     ]
 image: './assets/img/projects/project-minesweeper'
 description: Полнофункциональная игра Сапёр. Семантическая вёрстка, резиновый адаптивный макет, доступный дизайн.

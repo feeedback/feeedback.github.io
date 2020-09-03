@@ -10,7 +10,7 @@ tools:
         Gulp,
         responsive design,
         Masonry layout,
-        ~100 in Lighthouse,
+        Lighthouse~100,
     ]
 image: './assets/img/projects/project-feeedback.github.io'
 description: Сайт-визитка с информацией об авторе и портфолио. Построен на JAM стеке статическим генератором Jekyll, с переработанной темой. Адаптивный и доступный дизайн.

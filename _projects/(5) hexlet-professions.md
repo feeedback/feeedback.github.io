@@ -2,7 +2,6 @@
 name: Hexlet professions (backend & frontend)
 tools:
     [
-        JS,
         OOP,
         FP,
         MVC,
