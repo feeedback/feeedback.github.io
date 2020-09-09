@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center">
+   {%- for service, account in site.author -%}
+
+  {%- set service_data = social_media[service] -%}
+  {%- if service_data -%}
+  <a class="social mx-1" href="{{ service_data.url }}{{ account }}"
+    title="{{ service }}">
+    <i class="{{ service_data.icon }} icon1_5x" title="{{ service }}"></i>
+  </a>
+  {%- endif -%}
+
+  {%- endfor -%}
+</div>

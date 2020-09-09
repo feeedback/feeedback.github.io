@@ -1,0 +1,52 @@
+<div>
+  <div class="project card text-dark">
+    {%- if project_img -%}
+    <div class="img-gradient">
+      
+      <a href="{{ project_demo_url }}" class="project-image-link"
+        title="Click and see {{ project_name }}" aria-label="{{ project_name }}">
+        <picture>
+          {%- set widthWindow = [360,375,411,580,992,1200,4000] -%}
+          {%- set forWidthProject = [272,312,327,492,672,445,349] -%}
+
+          {%- for width in forWidthProject -%}
+          <source srcset="{{ project_img }}_{{ width }}w.webp {{ width }}w"
+            media="(max-width: {{ widthWindow[loop.index0] }}px)">
+          {%- endfor -%}
+          <source srcset="{{ project_img }}_fallback.jpg" type="image/jpeg">
+          <img class="card-img-top"
+            src="{{ project_img }}_fallback.jpg" alt="{{ project_name }}"
+            aspectratio="20x13" loading="lazy" />
+        </picture>
+        <span class="ribbon" name="Demo" aria-label="Demo">
+        </span>
+      </a>
+
+    </div>
+    {%- endif -%}
+
+
+
+    {# TODO: добавить кнопку "подробнее" на карточку проекта
+       - открывается модальное окно с каруселью фото,
+    чтобы показать 3+ фото, как выглядит проект под разными устройствами -#}
+
+    <div class="card-body pt-2">
+      <h3 id="{{ project_id }}-name" class="card-title mt-2 text-center">
+        {{- project_name -}}
+      </h3>
+
+      <p id="{{ project_id }}-desc" class="card-text card-desc">{{ project_desc }}
+        <a href="{{ project_source_url }}" class="my-btn text-dark d-inline-block"
+          title="Github repository">
+          <cite title="Github repository"><span class="d-inline-block"><i
+                class="icon-github icon-mr-1"></i>Source</span></cite></a>
+      </p>
+      <p id="{{ project_id }}-tools" class="card-text card-tools">
+        {%- for tool in project_tools -%}
+        <span class="badge border">{{ tool }}</span>
+        {%- endfor -%}
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+README.md
+CONTRIBUTING.md
+LICENSE
+*.log
+node_modules
+package*.json
+gulpfile.js
+_site
+./src/_*/**/*.*

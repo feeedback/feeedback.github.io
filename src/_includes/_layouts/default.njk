@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+{%- include "head.njk" -%}
+
+<body class="d-flex flex-column h-100">
+  {# <main class="flex-shrink-0 container mt-4"> -#}
+  <main class="flex-shrink-0">
+    <div class="row justify-content-center mx-0">
+      	{{ content | safe }}
+    </div>
+  </main>
+
+  {%- include "footer.njk" -%}
+  {%- include "analytics.njk" -%}
+  {%- include "scripts.njk" -%}
+
+</body>
+</html>

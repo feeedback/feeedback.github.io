@@ -23,10 +23,13 @@ const postcssMergeRules = require('postcss-merge-rules');
 const postcssScssParser = require('postcss-scss');
 const purgecss = require('@fullhuman/postcss-purgecss');
 
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
+
 const paths = {
-    imgRawData: '_data/img_src',
-    imgSrc: 'assets/img',
-    cssSrc: 'assets/css',
+    imgRawData: 'src/_data/img_src',
+    imgSrc: 'src/assets/img',
+    cssSrc: 'src/assets/css',
     build: '_site',
     bootstrapFrom: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
     bootstrapTo: `_site/assets/css/bootstrap/`,
@@ -99,6 +102,15 @@ const copyAnimateCSSToProject = (cb) => {
     cb();
 };
 
+// const del = require('del');
+
+const sassCompile = (cb) => {
+    src(`${paths.build}/**/*.scss`)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(dest());
+    cb();
+};
+
 const minifyCss = (cb) => {
     const postcssPlugins = [
         cssDeclarationSorter({ order: 'concentric-css' }),
@@ -158,8 +170,8 @@ const minifyJs = (cb) => {
 //     cb();
 // };
 
-const jekyllBuild = (cb) => {
-    execSync('bundle exec jekyll build');
+const eleventyBuild = (cb) => {
+    execSync('eleventyBuild');
     cb();
 };
 
@@ -178,8 +190,9 @@ const beforeBuild = trueSyncSeries(
 const afterBuild = parallel(minifyCss, minifyHtml, minifyJs);
 const build = trueSyncSeries(
     'beforeBuild',
-    'jekyllBuild',
+    'eleventyBuild',
     'copyLibsCSSToProject',
+    'sassCompile',
     'afterBuild'
 );
 
@@ -235,9 +248,10 @@ exports.copyLibsCSSToProject = parallel(
     copyAnimateCSSToProject
 );
 exports.minifyStyleDev = series(minifyCssDev, minifyScssDev);
+exports.sassCompile = sassCompile;
 
 exports.beforeBuild = beforeBuild;
-exports.jekyllBuild = jekyllBuild;
+exports.eleventyBuild = eleventyBuild;
 exports.afterBuild = afterBuild;
 exports.build = build;
 exports.default = series(build, browserSyncInit, watchAll);

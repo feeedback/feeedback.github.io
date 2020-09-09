@@ -1,0 +1,31 @@
+{# Collect tags from all posts -#}
+{%- set tags = blank -%}
+{%- for post in site.posts -%}
+  {%- set post_tags = post.tags | join('|') | append('|') -%}
+  {%- if post_tags != '|' -%}
+    {%- set tags = tags | append(post_tags) -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- set tags = tags | split('|') | uniq | sort -%}
+
+{# List tags & related posts -#}
+{%- for tag in tags -%}
+<div class="py-3">
+  <h4 id="{{ tag | slugify }}">{{ tag }}</h4>
+  <ol>
+  {%- for post in site.posts -%}
+    {%- if tag in post.tags  -%}
+      {%- if post.external_url -%}
+        {%- set url = post.external_url -%}
+      {%- else -%}
+        {%- set url = post.url -%}
+      {%- endif -%}
+    <a href="{{ url }}"><li>{{ post.title }}</li></a>
+    <small class="text-muted"> - {{- post.date | date_to_long_string -}}</small>
+    <br/>
+    {%- endif -%}
+  {%- endfor -%}
+  </ol>
+</div>
+<hr class="bg-light">
+{%- endfor -%}

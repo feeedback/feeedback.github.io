@@ -1,0 +1,16 @@
+<section class="about" id="about">
+  <h2 class="title pt-3 p-2 m-0">About me</h2>
+  <div>
+    <article class="bio mb-4 px-3 text-center">{{ site.about_me }}</article>
+
+    <article class="skills mb-3">
+    {%- set title = "Skills" -%}
+    {%- set source = skills -%}
+      {%- include "about/skills.njk" -%}
+    </article>
+
+    <article class="timeline mb-4">
+      {%- include "about/timeline.njk" -%}
+    </article>
+  </div>
+</section>

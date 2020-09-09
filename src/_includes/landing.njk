@@ -1,0 +1,32 @@
+<section id="nav" class="text-center">
+  <h4 class="wow animated zoomIn mt-3" data-wow-duration="0.3s">
+    <a class="text-decoration-none"
+      href="{{ site.baseurl }}/"><b>
+      {{- site.author.name -}}
+      </b></a>
+  </h4>
+  <p class="specialization text-muted wow animated zoomIn mb-0 my-1 pb-2"
+    data-wow-duration="0.3s">{{ site.label }}</p>
+  {# <div id="container" class="my-3 col-sm-8 col-10 col-md-12"> -#}
+  <div id="container">
+    <picture>
+      {%- set widthWindow = [375,451,768,992,1200,1400] -%}
+      {%- set forWdAvatar = [268,280,303,175,200,256] -%}
+      {%- for width in forWdAvatar -%}
+      <source srcset="{{ site.author.image }}_{{ width }}w.webp {{ width }}w"
+        media="(max-width: {{ widthWindow[loop.index0] }}px)">
+      {%- endfor -%}
+      <source srcset="{{ site.author.image }}_fallback.jpg" type="image/jpeg">
+      <img src="{{ site.author.image }}_fallback.jpg" alt="{{ site.title }}"
+        class="circle-image" rel="preload" as="image" width="100%" height="100%">
+    </picture>
+  </div>
+  {# <p class="text-muted wow animated zoomIn mb-0 my-2" data-wow-duration="0.3s">{{ site.summary }}</p> -#}
+
+  <nav class="d-flex mt-2 justify-content-center align-items-center wow animated zoomIn"
+    data-wow-duration="0.3s">
+    <a class="nav-item nav-my-link" href="#about">About</a>|
+    <a class="nav-item nav-my-link" href="#projects">Projects</a>
+  </nav>
+  {%- include "social_2x.njk" -%}
+</section>

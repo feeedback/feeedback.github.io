@@ -1,0 +1,14 @@
+<div class="social-link-block pb-1 d-flex justify-content-center wow animated zoomIn"
+  data-wow-duration="0.3s">
+ {%- for service, account in site.main_info_author -%}
+
+  {%- set service_data = social_media[service] -%}
+  {%- if service_data -%}
+  <a class="social mx-1" href="{{ service_data.url }}{{ account }}"
+    title="{{ service }}">
+    <i class="{{ service_data.icon }} icon2x" title="{{ service }}"></i>
+  </a>
+  {%- endif -%}
+
+  {%- endfor -%}
+</div>

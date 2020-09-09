@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Программирую, творю, обучаюсь. Junior full-stack web developer.">
-    <title>Alexander Rzhanitsyn. Portfolio</title>
+{# 404 page by https://codepen.io/gxash/pen/rrJYwm -#}
 
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico">
-    <link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/animate.css/animate.min.css" type="text/css">
-    <link rel="stylesheet" href="./assets/css/fontello.css" />
-</head><body class="container">
+<html lang="en">
+
+{%- include "head.njk" -%}
+
+<body class="container">
 
   <div class="wrapper p-5 text-center">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
@@ -139,7 +131,7 @@
     </svg>
   
     <h3>Page not Found!</h3>
-    <a class="btn btn-outline-primary mt-1" href="/">Go Back Home</a>
+    <a class="btn btn-outline-primary mt-1" href="{{ site.baseurl }}/">Go Back Home</a>
   
   </div>
 </body>
