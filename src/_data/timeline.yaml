@@ -1,4 +1,15 @@
-- title: Student, IIIT Pune
+- title: Self-taught student
+  company: Hexlet
   from: 2019
+  to: 2020
+  href: https://ru.hexlet.io/u/risok?ref=53329
+  description: >-
+      Научился фундаментальному пониманию программирования. Прошёл 6+ месяцев обучения, 385+ уроков, 318+ упражнений.
+
+- title: Self-taught student
+  company: FreeCodeCamp
+  from: 2020
   to: present
-  description:
+  href: https://www.freecodecamp.org/risok
+  description: >-
+      Изучил такие темы, как: Responsive Web Design; JS Algorithms and Data Structures; Front End Libraries; Data Visualization; APIs and Microservices; Quality Assurance

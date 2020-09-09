@@ -6,5 +6,3 @@ node_modules
 package*.json
 gulpfile.js
 _site
-./src/_*/**/*.*
-./src/assets/css/sass

@@ -1,5 +1,9 @@
 const markdownIt = require('markdown-it');
 const yaml = require('js-yaml');
+// const fs = require('fs');
+// function getDirectories(path) {
+//     return fs.readdirSync(path).map((file) => path + '/' + file);
+// }
 
 module.exports = (eleventyConfig) => {
     const config = {
@@ -13,6 +17,7 @@ module.exports = (eleventyConfig) => {
         dataTemplateEngine: 'njk',
         markdownTemplateEngine: 'njk',
         htmlTemplateEngine: 'njk',
+        // templateFormats: ['html', 'njk'],
     };
     const markdownLibrary = markdownIt({
         html: true,
@@ -32,10 +37,18 @@ module.exports = (eleventyConfig) => {
     );
 
     eleventyConfig.addCollection('projects', (collection) => {
-        const coll = collection.getFilteredByGlob('src/_projects/*.md');
-        // console.log(coll);
+        const coll = collection.getFilteredByGlob('./src/_projects/*.md');
         return coll;
     });
+
+    // eleventyConfig.addCollection('projects', (collectionApi) => {
+    //     const getFilesPath = getDirectories('./src/_projects');
+    //     const coll = collectionApi
+    //         .getAll()
+    //         .filter((item) => getFilesPath.includes(item.inputPath));
+    //     return coll;
+    // });
+
     // copy files and build
     eleventyConfig.addPassthroughCopy('src/assets/img');
     eleventyConfig.addPassthroughCopy('src/assets/font');

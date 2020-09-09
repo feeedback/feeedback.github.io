@@ -20,7 +20,7 @@ const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
 const postcssCustomProperties = require('postcss-custom-properties');
 const postcssCalc = require('postcss-calc');
 const postcssMergeRules = require('postcss-merge-rules');
-const postcssScssParser = require('postcss-scss');
+// const postcssScssParser = require('postcss-scss');
 const purgecss = require('@fullhuman/postcss-purgecss');
 
 const sass = require('gulp-sass');
@@ -39,19 +39,18 @@ const paths = {
 };
 
 // const forWidthAvatar = [360, 375, 451, 768, 992, 1200];
-const resizeAvatar = (cb) => {
-    [268, 280, 303, 175, 200, 256].forEach((size) => {
+const resizeAvatar = () => {
+    return [268, 280, 303, 175, 200, 256].forEach((size) => {
         src(`${paths.imgRawData}/**/avatar.{jpg,jpeg,png}`)
             .pipe(imageResize({ width: size }))
             .pipe(rename({ suffix: `_${size}w` }))
             .pipe(dest(paths.imgRawData));
     });
-    cb();
 };
 // const forWidthProject = [320, 360, 375, 411, 580, 768, 992, 1200];
-const resizeProjectImage = (cb) => {
+const resizeProjectImage = () => {
     // for [320w, 360w, 375w, 411w, 580w+, 768w+, 2X 992w+, 3X 1200w+]
-    [272, 312, 327, 363, 492, 672, 445, 349].forEach((size) => {
+    return [272, 312, 327, 363, 492, 672, 445, 349].forEach((size) => {
         src([
             `${paths.imgRawData}/**/project-*+([^0-9][^w]).{jpg,jpeg,png}`,
             `${paths.imgRawData}/**/!*_fallback.{jpg,jpeg,png}`,
@@ -60,23 +59,21 @@ const resizeProjectImage = (cb) => {
             .pipe(rename({ suffix: `_${size}w` }))
             .pipe(dest(paths.imgRawData));
     });
-    cb();
 };
 const resizeImage = parallel(resizeAvatar, resizeProjectImage);
 
-const minifyImage = (cb) => {
-    src([
+const minifyImage = () => {
+    return src([
         `${paths.imgRawData}/**/*_*.{jpg,jpeg,png}`,
         `${paths.imgRawData}/**/!*_fallback.{jpg,jpeg,png}`,
     ])
         .pipe(webp({ quality: 92, method: 6 }))
         .pipe(dest(paths.imgSrc));
-    cb();
 };
 
-const minifyImageJPGForFallback = (cb) => {
+const minifyImageJPGForFallback = () => {
     const defaultWidth = 312;
-    src([
+    return src([
         `${paths.imgRawData}/**/avatar.{jpg,jpeg,png}`,
         `${paths.imgRawData}/**/project-*+([^0-9][^w]).{jpg,jpeg,png}`,
         `${paths.imgRawData}/**/!*_fallback.{jpg,jpeg,png}`,
@@ -86,7 +83,6 @@ const minifyImageJPGForFallback = (cb) => {
         .pipe(imagemin([imagemin.mozjpeg({ quality: 80, progressive: true })]))
         .pipe(rename({ suffix: `_fallback`, extname: '.jpg' }))
         .pipe(dest(paths.imgSrc));
-    cb();
 };
 
 const browserSyncReload = (cb) => {
@@ -94,29 +90,26 @@ const browserSyncReload = (cb) => {
     cb();
 };
 
-const copyBootstrapCSSToProject = (cb) => {
-    src(paths.bootstrapFrom).pipe(dest(paths.bootstrapTo));
-    cb();
+const copyBootstrapCSSToProject = () => {
+    return src(paths.bootstrapFrom).pipe(dest(paths.bootstrapTo));
 };
-const copyAnimateCSSToProject = (cb) => {
-    src(paths.animateCSSFrom).pipe(dest(paths.animateCSSTo));
-    cb();
+const copyAnimateCSSToProject = () => {
+    return src(paths.animateCSSFrom).pipe(dest(paths.animateCSSTo));
 };
 
-// const del = require('del');
+const del = require('del');
 
-const sassCompile = (cb) => {
-    src(`${paths.sassSrc}/**/style.scss`)
+const sassCompile = () => {
+    return src(`${paths.sassSrc}/**/style.scss`)
         .pipe(
             sass({
                 includePaths: `${paths.sassSrc}/sass`,
             }).on('error', sass.logError)
         )
         .pipe(dest(`${paths.build}/assets/css`));
-    cb();
 };
 
-const minifyCss = (cb) => {
+const minifyCss = () => {
     const postcssPlugins = [
         cssDeclarationSorter({ order: 'concentric-css' }),
         postcssFlexbugsFixes(),
@@ -133,19 +126,17 @@ const minifyCss = (cb) => {
         cssnano(),
     ];
 
-    src(`${paths.build}/**/*.css`)
+    return src(`${paths.build}/**/*.css`)
         .pipe(gulpPostcss(postcssPlugins))
         .pipe(dest(paths.build));
-    cb();
 };
-const minifyHtml = (cb) => {
-    src(`${paths.build}/**/*.html`)
+const minifyHtml = () => {
+    return src(`${paths.build}/**/*.html`)
         .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
         .pipe(dest(paths.build));
-    cb();
 };
-const minifyJs = (cb) => {
-    src(`${paths.build}/**/*.js`)
+const minifyJs = () => {
+    return src(`${paths.build}/**/*.js`)
         .pipe(
             terser({
                 keep_fnames: true,
@@ -153,8 +144,11 @@ const minifyJs = (cb) => {
             })
         )
         .pipe(dest(paths.build));
+};
 
-    cb();
+const deleteUnnecessary = () => {
+    const deletedPaths = del('_site/_projects');
+    return deletedPaths;
 };
 
 // const deleteSourceImage = (cb) => {
@@ -180,25 +174,21 @@ const eleventyBuild = (cb) => {
     cb();
 };
 
-const trueSyncSeries = (...tasks) => {
-    return (cb) => {
-        execSync(tasks.map((f) => `gulp ${f}`).join('&&'));
-        cb();
-    };
-};
+// const trueSyncSeries = (...tasks) => {
+//     return (cb) => {
+//         execSync(tasks.map((f) => `gulp ${f}`).join('&&'));
+//         cb();
+//     };
+// };
 
-const beforeBuild = trueSyncSeries(
-    'resizeImage',
-    'minifyImage',
-    'minifyImageJPGForFallback'
-);
+const beforeBuild = series(resizeImage, minifyImage, minifyImageJPGForFallback);
 const afterBuild = parallel(minifyCss, minifyHtml, minifyJs);
-const build = trueSyncSeries(
-    // 'beforeBuild',
-    'eleventyBuild',
-    'copyLibsCSSToProject',
-    'sassCompile',
-    'afterBuild'
+const build = series(
+    // beforeBuild,
+    parallel(eleventyBuild, copyBootstrapCSSToProject, copyAnimateCSSToProject),
+    sassCompile,
+    afterBuild,
+    deleteUnnecessary
 );
 
 const browserSyncInit = (cb) => {
@@ -217,43 +207,44 @@ const watchAll = (cb) => {
     cb();
 };
 
-const minifyCssDev = (cb) => {
-    const postcssPlugins = [
-        cssDeclarationSorter({ order: 'concentric-css' }),
-        postcssFlexbugsFixes(),
-        postcssMergeRules(),
-        cssDeclarationSorter({ order: 'concentric-css' }),
-    ];
+// const minifyCssDev = (cb) => {
+//     const postcssPlugins = [
+//         cssDeclarationSorter({ order: 'concentric-css' }),
+//         postcssFlexbugsFixes(),
+//         postcssMergeRules(),
+//         cssDeclarationSorter({ order: 'concentric-css' }),
+//     ];
 
-    src(`${paths.cssSrc}/**/*.css`)
-        .pipe(gulpPostcss(postcssPlugins))
-        .pipe(dest(paths.cssSrc));
-    cb();
-};
-const minifyScssDev = (cb) => {
-    const postcssPlugins = [
-        cssDeclarationSorter({ order: 'concentric-css' }),
-        postcssFlexbugsFixes(),
-        postcssMergeRules(),
-        cssDeclarationSorter({ order: 'concentric-css' }),
-    ];
+//     src(`${paths.cssSrc}/**/*.css`)
+//         .pipe(gulpPostcss(postcssPlugins))
+//         .pipe(dest(paths.cssSrc));
+//     cb();
+// };
+// const minifyScssDev = (cb) => {
+//     const postcssPlugins = [
+//         cssDeclarationSorter({ order: 'concentric-css' }),
+//         postcssFlexbugsFixes(),
+//         postcssMergeRules(),
+//         cssDeclarationSorter({ order: 'concentric-css' }),
+//     ];
 
-    src(`${paths.cssSrc}/**/*.scss`)
-        .pipe(gulpPostcss(postcssPlugins, { parser: postcssScssParser }))
-        .pipe(dest(paths.cssSrc));
-    cb();
-};
+//     src(`${paths.cssSrc}/**/*.scss`)
+//         .pipe(gulpPostcss(postcssPlugins, { parser: postcssScssParser }))
+//         .pipe(dest(paths.cssSrc));
+//     cb();
+// };
 
 exports.resizeImage = resizeImage;
 exports.minifyImage = minifyImage;
 exports.minifyImageJPGForFallback = minifyImageJPGForFallback;
 
-exports.copyLibsCSSToProject = parallel(
-    copyBootstrapCSSToProject,
-    copyAnimateCSSToProject
-);
-exports.minifyStyleDev = series(minifyCssDev, minifyScssDev);
+// exports.copyLibsCSSToProject = parallel(
+//     copyBootstrapCSSToProject,
+//     copyAnimateCSSToProject
+// );
+// exports.minifyStyleDev = series(minifyCssDev, minifyScssDev);
 exports.sassCompile = sassCompile;
+exports.deleteUnnecessary = deleteUnnecessary;
 
 exports.beforeBuild = beforeBuild;
 exports.eleventyBuild = eleventyBuild;

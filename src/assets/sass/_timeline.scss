@@ -1,60 +1,80 @@
-.timeline-body {
-  position: relative;
-  background-color: $light;
-  border-radius: 0 $rounded-borders $rounded-borders 0;
-  padding: 5px 0;
-
-  &:after {
-    // Left Border
-    content: "";
-    height: 100%;
-    background-color: $primary;
-
-    width: 2px;
-    position: absolute;
-    transform: translate(-50%);
-    left: auto;
-    top: 0;
-  }
-
-  .timeline-item {
-    position: relative;
-
-    &:after {
-      // Circle
-      content: "";
-      border-radius: 50%;
-      background-color: $light;
-      position: absolute;
-      top: 8px;
-      z-index: 10;
-
-      width: 16px;
-      height: 16px;
-      border: 3px solid #007bff;
-      left: auto;
-      transform: translate(-50%, 50%);
+.timeline {
+    .col {
+        padding-right: 10px;
+        padding-left: 15px;
     }
+    .timeline-body {
+        position: relative;
+        background-color: $light;
+        border-radius: 0 $rounded-borders $rounded-borders 0;
+        padding: 5px 0;
 
-    .content {
-      margin: 40px;
-      padding-bottom: 20px;
-      border-bottom: 1px dashed $dark;
+        &:after {
+            // Left Border
+            content: '';
+            height: 100%;
+            background-color: $primary;
 
-      .date {
-        margin-top: -5px;
-        margin-bottom: 15px;
+            width: 2px;
+            position: absolute;
+            transform: translate(-50%);
+            left: auto;
+            top: 0;
+        }
 
-        color: #6b737f;
-      }
+        .timeline-item {
+            position: relative;
+
+            &:after {
+                // Circle
+                content: '';
+                border-radius: 50%;
+                background-color: $light;
+                position: absolute;
+                top: -3px;
+                z-index: 10;
+
+                width: 16px;
+                height: 16px;
+                border: 3px solid #007bff;
+                left: auto;
+                transform: translate(-50%, 50%);
+            }
+
+            .content {
+                margin: 1.1em 1em 0em 2em;
+                border-bottom: 1px dashed #bcbcbc;
+
+                .date {
+                    margin-top: -0.5em;
+                    margin-bottom: 0.8em;
+
+                    color: #6b737f;
+                }
+                .description {
+                    // color: #323232;
+                    // font-style: italic;
+                    font-size: 15px;
+                    margin-bottom: 1em;
+                }
+                .sub-title {
+                    font-size: 1.2rem;
+                }
+            }
+        }
     }
-  }
 }
-
 .bio {
-  max-width: 800px;
+    max-width: 800px;
 }
+
 .about > div {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+@media (min-width: 640px) {
+    .about > div {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
 }

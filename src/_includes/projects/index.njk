@@ -2,15 +2,12 @@
   <h2 class="title p-2 pt-4 m-0">Projects</h2>
 
   <div class="card-columns m-2">
-
-  {%- include "projects/project-card.njk" -%}
-    {# Local Projects -#}
     {%- for project in collections.projects -%}
-
+{%- if project.data.name -%}
     {%- set project_type  = "local" -%}
     {%- set project_img   = project.data.image -%}
     {%- set project_name  = project.data.name -%}
-    {%- set project_id  = project.data.name | slug-%}
+    {%- set project_id  = project.data.name | slug -%}
     {%- set project_desc  = project.data.description -%}
     {%- set project_tools = project.data.tools -%}
     {%- set project_source_url = project.data.source_url -%}
@@ -22,7 +19,7 @@
     {%- endif -%}
 
     {%- include "projects/project-card.njk" -%}
-
+{%- endif -%}
     {%- endfor -%}
 
   </div>

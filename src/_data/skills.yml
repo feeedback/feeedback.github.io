@@ -30,7 +30,7 @@
   percentage: 50
   color: warning
 
-- name: Bootstrap, Font Awesome, Lodash, Animate, d3
+- name: Bootstrap, Font Awesome, Lodash
   percentage: 50
   color: warning
 
