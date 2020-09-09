@@ -37,6 +37,9 @@ module.exports = (eleventyConfig) => {
         return coll;
     });
     // copy files and build
-    eleventyConfig.addPassthroughCopy('src/assets');
+    eleventyConfig.addPassthroughCopy('src/assets/img');
+    eleventyConfig.addPassthroughCopy('src/assets/font');
+    eleventyConfig.addPassthroughCopy('src/assets/js');
+    eleventyConfig.addPassthroughCopy('src/assets/css');
     return config;
 };

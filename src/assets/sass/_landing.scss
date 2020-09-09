@@ -7,7 +7,7 @@
 }
 
 #container {
-  max-width: min(303px, 90%);
+  max-width: calc(min(303px, 90%));
 
   display: inline-block;
   position: relative;
@@ -35,7 +35,7 @@
 @media screen and (min-width: 250px) and (max-width: 450px) {
   #container {
     flex: 0 0 80%;
-    max-width: min(280px, 80%);
+    max-width: calc(min(280px, 80%));
   }
 }
 

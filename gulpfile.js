@@ -30,6 +30,7 @@ const paths = {
     imgRawData: 'src/_data/img_src',
     imgSrc: 'src/assets/img',
     cssSrc: 'src/assets/css',
+    sassSrc: 'src/assets/sass',
     build: '_site',
     bootstrapFrom: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
     bootstrapTo: `_site/assets/css/bootstrap/`,
@@ -105,9 +106,13 @@ const copyAnimateCSSToProject = (cb) => {
 // const del = require('del');
 
 const sassCompile = (cb) => {
-    src(`${paths.build}/**/*.scss`)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(dest());
+    src(`${paths.sassSrc}/**/style.scss`)
+        .pipe(
+            sass({
+                includePaths: `${paths.sassSrc}/sass`,
+            }).on('error', sass.logError)
+        )
+        .pipe(dest(`${paths.build}/assets/css`));
     cb();
 };
 
@@ -189,7 +194,7 @@ const beforeBuild = trueSyncSeries(
 );
 const afterBuild = parallel(minifyCss, minifyHtml, minifyJs);
 const build = trueSyncSeries(
-    'beforeBuild',
+    // 'beforeBuild',
     'eleventyBuild',
     'copyLibsCSSToProject',
     'sassCompile',

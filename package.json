@@ -7,7 +7,6 @@
         "build-11y": "npx eleventy",
         "watch": "npx eleventy --watch",
         "serve": "npx eleventy --serve",
-
         "watchGulp": "gulp",
         "deploy-gh-pages": "gh-pages -d _site",
         "build": "gulp build",
