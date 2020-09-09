@@ -4,9 +4,9 @@
     "description": "",
     "main": "index.html",
     "scripts": {
-        "build-11y": "eleventy",
-        "watch": "eleventy --watch",
-        "serve": "eleventy --serve",
+        "build-11y": "npx eleventy",
+        "watch": "npx eleventy --watch",
+        "serve": "npx eleventy --serve",
 
         "watchGulp": "gulp",
         "deploy-gh-pages": "gh-pages -d _site",

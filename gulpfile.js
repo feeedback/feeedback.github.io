@@ -171,7 +171,7 @@ const minifyJs = (cb) => {
 // };
 
 const eleventyBuild = (cb) => {
-    execSync('eleventyBuild');
+    execSync('npm run build-11y');
     cb();
 };
 
