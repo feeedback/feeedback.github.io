@@ -1,8 +1,8 @@
-- name: HTML5, CSS3
+- name: Semantic HTML5, CSS3
   percentage: 85
   color: danger
 
-- name: Responsive design, Semantic HTML
+- name: Responsive design, Accessibility
   percentage: 80
   color: danger
 
@@ -30,8 +30,12 @@
   percentage: 50
   color: warning
 
-- name: Bootstrap, Font Awesome, Lodash
+- name: Jekyll, Eleventy, Nunjucks
   percentage: 50
+  color: warning
+
+- name: Bootstrap, Font Awesome, Lodash
+  percentage: 45
   color: warning
 
 - name: Jest, Mocha, Chai
@@ -39,5 +43,5 @@
   color: info
 
 - name: Bash, pSQL, MongoDB
-  percentage: 30
+  percentage: 40
   color: info
