@@ -146,10 +146,10 @@ const minifyJs = () => {
         .pipe(dest(paths.build));
 };
 
-const deleteUnnecessary = () => {
-    const deletedPaths = del('_site/_projects');
-    return deletedPaths;
-};
+// const deleteUnnecessary = () => {
+//     const deletedPaths = del('_site/_projects');
+//     return deletedPaths;
+// };
 
 // const deleteSourceImage = (cb) => {
 //     (async () => {
@@ -187,8 +187,8 @@ const build = series(
     // beforeBuild,
     parallel(eleventyBuild, copyBootstrapCSSToProject, copyAnimateCSSToProject),
     sassCompile,
-    afterBuild,
-    deleteUnnecessary
+    afterBuild
+    // deleteUnnecessary
 );
 
 const browserSyncInit = (cb) => {
@@ -244,7 +244,6 @@ exports.minifyImageJPGForFallback = minifyImageJPGForFallback;
 // );
 // exports.minifyStyleDev = series(minifyCssDev, minifyScssDev);
 exports.sassCompile = sassCompile;
-exports.deleteUnnecessary = deleteUnnecessary;
 
 exports.beforeBuild = beforeBuild;
 exports.eleventyBuild = eleventyBuild;
