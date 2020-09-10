@@ -1,4 +1,5 @@
 ---
+permalink: false
 name: Calculator EUC payback
 tools:
     [

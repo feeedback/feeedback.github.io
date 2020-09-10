@@ -1,4 +1,5 @@
 ---
+permalink: false
 name: Hexlet professions (backend & frontend)
 tools:
     [

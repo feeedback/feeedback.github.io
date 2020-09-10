@@ -1,4 +1,5 @@
 ---
+permalink: false
 name: Exercise tracker with DB
 tools:
     [

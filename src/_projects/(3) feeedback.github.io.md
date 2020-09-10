@@ -1,4 +1,5 @@
 ---
+permalink: false
 name: Personal site (этот)
 tools:
     [
