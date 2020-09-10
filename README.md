@@ -1,6 +1,6 @@
 # feeedback.github.io
 
 A beautiful portfolio
-Сайт-визитка с информацией об авторе и портфолио. Построен на JAM стеке статическим генератором Jekyll, с переработанной темой. Адаптивный и доступный дизайн.
+Сайт-визитка с информацией об авторе и портфолио. Построен на JAM стеке статическим генератором Eleventy (мигрировал с Jekyll), с переработанной темой. Адаптивный и доступный дизайн.
 
-tags: JS, Sass, JAM stack, Jekyll, Bootstrap, Gulp, responsive design, Masonry layout, Lighthouse~100
+tags: JS, Sass, JAM stack, Eleventy, Nunjucks, Jekyll, Bootstrap, Gulp, responsive design, Masonry layout
