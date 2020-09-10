@@ -97,8 +97,6 @@ const copyAnimateCSSToProject = () => {
     return src(paths.animateCSSFrom).pipe(dest(paths.animateCSSTo));
 };
 
-const del = require('del');
-
 const sassCompile = () => {
     return src(`${paths.sassSrc}/**/style.scss`)
         .pipe(

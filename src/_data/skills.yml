@@ -43,5 +43,5 @@
   color: info
 
 - name: Bash, pSQL, MongoDB
-  percentage: 40
+  percentage: 35
   color: info
