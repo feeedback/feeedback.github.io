@@ -1,13 +1,13 @@
 - name: Semantic HTML5, CSS3
-  percentage: 85
-  color: danger
-
-- name: Responsive design, Accessibility
   percentage: 80
   color: danger
 
+- name: Responsive design, Accessibility
+  percentage: 75
+  color: danger
+
 - name: Javascript, Node.js
-  percentage: 95
+  percentage: 90
   color: success
 
 - name: Git, GitHub
@@ -19,11 +19,11 @@
   color: success
 
 - name: React.js
-  percentage: 70
+  percentage: 65
   color: warning
 
 - name: Redux
-  percentage: 35
+  percentage: 30
   color: warning
 
 - name: Figma, Webpack, Gulp, PostCSS

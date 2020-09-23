@@ -1,6 +1,6 @@
 ---
 permalink: false
-name: Hexlet professions (backend & frontend)
+name: профессии на Hexlet (backend & frontend)
 tools:
     [
         OOP,
