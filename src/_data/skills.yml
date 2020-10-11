@@ -15,7 +15,7 @@
   color: success
 
 - name: Npm, Express.js, WebSocket
-  percentage: 65
+  percentage: 55
   color: success
 
 - name: React.js
