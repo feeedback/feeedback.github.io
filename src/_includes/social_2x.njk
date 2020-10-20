@@ -6,7 +6,7 @@
   {%- if service_data -%}
   <a class="social mx-1" href="{{ service_data.url }}{{ account }}"
     title="{{ service }}">
-    <i class="{{ service_data.icon }} icon2x" title="{{ service }}"></i>
+    <i class="{{ service_data.icon }} icon2x" title="{{ service }}" aria-hidden="true"></i>
   </a>
   {%- endif -%}
 
