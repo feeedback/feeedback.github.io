@@ -27,121 +27,120 @@ const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 
 const paths = {
-    imgRawData: 'src/_data/img_src',
-    imgSrc: 'src/assets/img',
-    cssSrc: 'src/assets/css',
-    sassSrc: 'src/assets/sass',
-    build: '_site',
-    bootstrapFrom: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
-    bootstrapTo: `_site/assets/css/bootstrap/`,
-    animateCSSFrom: 'node_modules/animate.css/animate.min.css',
-    animateCSSTo: `_site/assets/css/animate.css/`,
+  imgRawData: 'src/_data/img_src',
+  imgSrc: 'src/assets/img',
+  cssSrc: 'src/assets/css',
+  sassSrc: 'src/assets/sass',
+  build: '_site',
+  bootstrapFrom: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
+  bootstrapTo: `_site/assets/css/bootstrap/`,
+  animateCSSFrom: 'node_modules/animate.css/animate.min.css',
+  animateCSSTo: `_site/assets/css/animate.css/`,
 };
 
 // const forWidthAvatar = [360, 375, 451, 768, 992, 1200];
-const resizeAvatar = () => {
-    return [268, 280, 303, 175, 200, 256].forEach((size) => {
-        src(`${paths.imgRawData}/**/avatar.{jpg,jpeg,png}`)
-            .pipe(imageResize({ width: size }))
-            .pipe(rename({ suffix: `_${size}w` }))
-            .pipe(dest(paths.imgRawData));
-    });
+const resizeAvatar = (cb) => {
+  [268, 280, 303, 175, 200, 256].forEach((size) => {
+    src(`${paths.imgRawData}/**/avatar.{jpg,jpeg,png}`)
+      .pipe(imageResize({ width: size }))
+      .pipe(rename({ suffix: `_${size}w` }))
+      .pipe(dest(paths.imgRawData));
+  });
+  cb();
 };
 // const forWidthProject = [320, 360, 375, 411, 580, 768, 992, 1200];
-const resizeProjectImage = () => {
-    // for [320w, 360w, 375w, 411w, 580w+, 768w+, 2X 992w+, 3X 1200w+]
-    return [272, 312, 327, 363, 492, 672, 445, 349].forEach((size) => {
-        src([
-            `${paths.imgRawData}/**/project-*+([^0-9][^w]).{jpg,jpeg,png}`,
-            `${paths.imgRawData}/**/!*_fallback.{jpg,jpeg,png}`,
-        ])
-            .pipe(imageResize({ width: size }))
-            .pipe(rename({ suffix: `_${size}w` }))
-            .pipe(dest(paths.imgRawData));
-    });
+const resizeProjectImage = (cb) => {
+  // for [320w, 360w, 375w, 411w, 580w+, 768w+, 2X 992w+, 3X 1200w+]
+  [272, 312, 327, 363, 492, 672, 445, 349].forEach((size) => {
+    src([
+      `${paths.imgRawData}/**/project-*+([^0-9][^w]).{jpg,jpeg,png}`,
+      `${paths.imgRawData}/**/!*_fallback.{jpg,jpeg,png}`,
+    ])
+      .pipe(imageResize({ width: size }))
+      .pipe(rename({ suffix: `_${size}w` }))
+      .pipe(dest(paths.imgRawData));
+  });
+  cb();
 };
 const resizeImage = parallel(resizeAvatar, resizeProjectImage);
 
-const minifyImage = () => {
-    return src([
-        `${paths.imgRawData}/**/*_*.{jpg,jpeg,png}`,
-        `${paths.imgRawData}/**/!*_fallback.{jpg,jpeg,png}`,
-    ])
-        .pipe(webp({ quality: 92, method: 6 }))
-        .pipe(dest(paths.imgSrc));
+const minifyImage = (cb) => {
+  src([`${paths.imgRawData}/**/*_*.{jpg,jpeg,png}`, `${paths.imgRawData}/**/!*_fallback.{jpg,jpeg,png}`])
+    .pipe(webp({ quality: 92, method: 6 }))
+    .pipe(dest(paths.imgSrc));
+  cb();
 };
 
-const minifyImageJPGForFallback = () => {
-    const defaultWidth = 312;
-    return src([
-        `${paths.imgRawData}/**/avatar.{jpg,jpeg,png}`,
-        `${paths.imgRawData}/**/project-*+([^0-9][^w]).{jpg,jpeg,png}`,
-        `${paths.imgRawData}/**/!*_fallback.{jpg,jpeg,png}`,
-    ])
-        .pipe(imageResize({ width: defaultWidth }))
-        .pipe(imagemin({ plugins: [pngToJpeg({ quality: 100 })] }))
-        .pipe(imagemin([imagemin.mozjpeg({ quality: 80, progressive: true })]))
-        .pipe(rename({ suffix: `_fallback`, extname: '.jpg' }))
-        .pipe(dest(paths.imgSrc));
+const minifyImageJPGForFallback = (cb) => {
+  const defaultWidth = 312;
+  src([
+    `${paths.imgRawData}/**/avatar.{jpg,jpeg,png}`,
+    `${paths.imgRawData}/**/project-*+([^0-9][^w]).{jpg,jpeg,png}`,
+    `${paths.imgRawData}/**/!*_fallback.{jpg,jpeg,png}`,
+  ])
+    .pipe(imageResize({ width: defaultWidth }))
+    .pipe(imagemin({ plugins: [pngToJpeg({ quality: 100 })] }))
+    .pipe(imagemin([imagemin.mozjpeg({ quality: 80, progressive: true })]))
+    .pipe(rename({ suffix: `_fallback`, extname: '.jpg' }))
+    .pipe(dest(paths.imgSrc));
+  cb();
 };
 
 const browserSyncReload = (cb) => {
-    bs.reload();
-    cb();
+  bs.reload();
+  cb();
 };
 
 const copyBootstrapCSSToProject = () => {
-    return src(paths.bootstrapFrom).pipe(dest(paths.bootstrapTo));
+  return src(paths.bootstrapFrom).pipe(dest(paths.bootstrapTo));
 };
 const copyAnimateCSSToProject = () => {
-    return src(paths.animateCSSFrom).pipe(dest(paths.animateCSSTo));
+  return src(paths.animateCSSFrom).pipe(dest(paths.animateCSSTo));
 };
 
 const sassCompile = () => {
-    return src(`${paths.sassSrc}/**/style.scss`)
-        .pipe(
-            sass({
-                includePaths: `${paths.sassSrc}/sass`,
-            }).on('error', sass.logError)
-        )
-        .pipe(dest(`${paths.build}/assets/css`));
+  return src(`${paths.sassSrc}/**/style.scss`)
+    .pipe(
+      sass({
+        includePaths: `${paths.sassSrc}/sass`,
+      }).on('error', sass.logError)
+    )
+    .pipe(dest(`${paths.build}/assets/css`));
 };
 
 const minifyCss = () => {
-    const postcssPlugins = [
-        cssDeclarationSorter({ order: 'concentric-css' }),
-        postcssFlexbugsFixes(),
-        postcssCustomProperties(),
-        postcssCalc(),
-        postcssMergeRules(),
-        cssDeclarationSorter({ order: 'concentric-css' }),
-        autoprefixer(),
-        purgecss({
-            content: ['./_site/**/*.html'],
-            css: [`${paths.build}/**/*.css`, `${paths.build}/**/!*font*.css`],
-            whitelist: ['html', 'body'],
-        }),
-        cssnano(),
-    ];
+  const postcssPlugins = [
+    cssDeclarationSorter({ order: 'concentric-css' }),
+    postcssFlexbugsFixes(),
+    postcssCustomProperties(),
+    postcssCalc(),
+    postcssMergeRules(),
+    cssDeclarationSorter({ order: 'concentric-css' }),
+    autoprefixer(),
+    purgecss({
+      content: ['./_site/**/*.html'],
+      css: [`${paths.build}/**/*.css`, `${paths.build}/**/!*font*.css`],
+      whitelist: ['html', 'body'],
+    }),
+    cssnano(),
+  ];
 
-    return src(`${paths.build}/**/*.css`)
-        .pipe(gulpPostcss(postcssPlugins))
-        .pipe(dest(paths.build));
+  return src(`${paths.build}/**/*.css`).pipe(gulpPostcss(postcssPlugins)).pipe(dest(paths.build));
 };
 const minifyHtml = () => {
-    return src(`${paths.build}/**/*.html`)
-        .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
-        .pipe(dest(paths.build));
+  return src(`${paths.build}/**/*.html`)
+    .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
+    .pipe(dest(paths.build));
 };
 const minifyJs = () => {
-    return src(`${paths.build}/**/*.js`)
-        .pipe(
-            terser({
-                keep_fnames: true,
-                mangle: false,
-            })
-        )
-        .pipe(dest(paths.build));
+  return src(`${paths.build}/**/*.js`)
+    .pipe(
+      terser({
+        keep_fnames: true,
+        mangle: false,
+      })
+    )
+    .pipe(dest(paths.build));
 };
 
 // const deleteUnnecessary = () => {
@@ -168,8 +167,8 @@ const minifyJs = () => {
 // };
 
 const eleventyBuild = (cb) => {
-    execSync('npm run build-11y');
-    cb();
+  execSync('npm run build-11y');
+  cb();
 };
 
 // const trueSyncSeries = (...tasks) => {
@@ -182,27 +181,27 @@ const eleventyBuild = (cb) => {
 const beforeBuild = series(resizeImage, minifyImage, minifyImageJPGForFallback);
 const afterBuild = parallel(minifyCss, minifyHtml, minifyJs);
 const build = series(
-    // beforeBuild,
-    parallel(eleventyBuild, copyBootstrapCSSToProject, copyAnimateCSSToProject),
-    sassCompile,
-    afterBuild
-    // deleteUnnecessary
+  // beforeBuild,
+  parallel(eleventyBuild, copyBootstrapCSSToProject, copyAnimateCSSToProject),
+  sassCompile,
+  afterBuild
+  // deleteUnnecessary
 );
 
 const browserSyncInit = (cb) => {
-    bs.init({ server: { baseDir: paths.build } });
-    cb();
+  bs.init({ server: { baseDir: paths.build } });
+  cb();
 };
 const watchAll = (cb) => {
-    const watchOptions = {
-        ignored: [paths.build, paths.imgRawData, paths.imgSrc],
-        delay: 300,
-        awaitWriteFinish: true,
-    };
-    const taskWhenChange = series(build, browserSyncReload);
+  const watchOptions = {
+    ignored: [paths.build, paths.imgRawData, paths.imgSrc],
+    delay: 300,
+    awaitWriteFinish: true,
+  };
+  const taskWhenChange = series(build, browserSyncReload);
 
-    watch('.', watchOptions, taskWhenChange);
-    cb();
+  watch('.', watchOptions, taskWhenChange);
+  cb();
 };
 
 // const minifyCssDev = (cb) => {

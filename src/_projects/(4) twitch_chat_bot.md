@@ -4,7 +4,7 @@ name: Twitch чат-бот для стороннего API
 tools: [
     Node.js,
     Axios,
-    Heroku
+    Heroku,
     jsdom,
     Twitch API,
     Mongoose,
