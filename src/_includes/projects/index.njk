@@ -2,12 +2,13 @@
   <h2 class="title p-2 pt-4 m-0">Projects</h2>
 
   <div class="card-columns m-2">
-    {%- for project in collections.projects -%}
+    {%- for project in collections.projects | sort(false, false, 'fileSlug')  -%}
 {%- if project.data.name -%}
     {%- set project_type  = "local" -%}
     {%- set project_img   = project.data.image -%}
     {%- set project_name  = project.data.name -%}
     {%- set project_id  = project.data.name | slug -%}
+    {# {%- set project_desc  = project.fileSlug -%} #}
     {%- set project_desc  = project.data.description -%}
     {%- set project_tools = project.data.tools -%}
     {%- set project_source_url = project.data.source_url -%}
