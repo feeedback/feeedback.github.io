@@ -1,15 +1,34 @@
-- title: Self-taught student
+- title: Training course on algorithms
+  company: Академия Яндекса
+  from: June 2021
+  to: July 2021
+  href: https://yandex.ru/yaintern/algorithm-training
+  description: >-
+    8 лекций с домашними заданиями на платформе Яндекс.Контест. 20 задач в неделю. 4 трансляции с проверкой заданий, разбором решений и популярных ошибок
+
+- title: pre-Middle Node.JS developer
+  company: Simple Sales
+  from: April 2021
+  to: July 2021
+  href: https://career.habr.com/risok
+- title: Junior JS developer
+  company: Simple Sales
+  from: October 2020
+  to: April 2021
+  href: https://career.habr.com/risok
+
+- title: Educational courses
+  company: FreeCodeCamp
+  from: May 2020
+  to: August 2020
+  href: https://www.freecodecamp.org/risok
+  description: >-
+    Responsive Web Design; JS Algorithms and Data Structures; Front End Libraries; Data Visualization; APIs and Microservices; Quality Assurance
+
+- title: Educational courses
   company: Hexlet
   from: 2019
   to: 2020
   href: https://ru.hexlet.io/u/risok?ref=53329
   description: >-
-      Изучил многие фундаментальные и прикладные темы. Прошёл два направления: фронтенд и бекенд. Подробный список изученных тем по ссылке. 6+ месяцев обучения, 385+ уроков, 318+ упражнений.
-
-- title: Self-taught student
-  company: FreeCodeCamp
-  from: 2020
-  to: present
-  href: https://www.freecodecamp.org/risok
-  description: >-
-      Изучил такие темы, как: Responsive Web Design; JS Algorithms and Data Structures; Front End Libraries; Data Visualization; APIs and Microservices; Quality Assurance
+    Изучил многие фундаментальные и прикладные темы. Прошёл два направления: фронтенд и бекенд. Подробный список изученных тем по ссылке. 6+ месяцев обучения, 385+ уроков, 318+ упражнений.

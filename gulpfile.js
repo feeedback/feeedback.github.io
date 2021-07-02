@@ -91,22 +91,17 @@ const browserSyncReload = (cb) => {
   cb();
 };
 
-const copyBootstrapCSSToProject = () => {
-  return src(paths.bootstrapFrom).pipe(dest(paths.bootstrapTo));
-};
-const copyAnimateCSSToProject = () => {
-  return src(paths.animateCSSFrom).pipe(dest(paths.animateCSSTo));
-};
+const copyBootstrapCSSToProject = () => src(paths.bootstrapFrom).pipe(dest(paths.bootstrapTo));
+const copyAnimateCSSToProject = () => src(paths.animateCSSFrom).pipe(dest(paths.animateCSSTo));
 
-const sassCompile = () => {
-  return src(`${paths.sassSrc}/**/style.scss`)
+const sassCompile = () =>
+  src(`${paths.sassSrc}/**/style.scss`)
     .pipe(
       sass({
         includePaths: `${paths.sassSrc}/sass`,
       }).on('error', sass.logError)
     )
     .pipe(dest(`${paths.build}/assets/css`));
-};
 
 const minifyCss = () => {
   const postcssPlugins = [
@@ -127,13 +122,12 @@ const minifyCss = () => {
 
   return src(`${paths.build}/**/*.css`).pipe(gulpPostcss(postcssPlugins)).pipe(dest(paths.build));
 };
-const minifyHtml = () => {
-  return src(`${paths.build}/**/*.html`)
+const minifyHtml = () =>
+  src(`${paths.build}/**/*.html`)
     .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
     .pipe(dest(paths.build));
-};
-const minifyJs = () => {
-  return src(`${paths.build}/**/*.js`)
+const minifyJs = () =>
+  src(`${paths.build}/**/*.js`)
     .pipe(
       terser({
         keep_fnames: true,
@@ -141,7 +135,6 @@ const minifyJs = () => {
       })
     )
     .pipe(dest(paths.build));
-};
 
 // const deleteUnnecessary = () => {
 //     const deletedPaths = del('_site/_projects');

@@ -1,29 +1,29 @@
 - name: Semantic HTML5, CSS3
-  percentage: 80
+  percentage: 85
   color: danger
 
 - name: Responsive design, Accessibility
   percentage: 75
   color: danger
 
-- name: Javascript, Node.js
+- name: JS, Node.js, MongoDB
   percentage: 90
   color: success
 
-- name: Git, GitHub
-  percentage: 55
+- name: Git, GitHub, Gitlab, Npm
+  percentage: 70
   color: success
 
-- name: Npm, Express.js, WebSocket
-  percentage: 55
+- name: Express.js, WS, Redis
+  percentage: 50
   color: success
 
 - name: React.js
-  percentage: 65
+  percentage: 50
   color: warning
 
-- name: Redux
-  percentage: 30
+- name: Vue.js, Redux
+  percentage: 35
   color: warning
 
 - name: Figma, Webpack, Gulp, PostCSS
@@ -35,13 +35,13 @@
   color: warning
 
 - name: Bootstrap, Font Awesome, Lodash
-  percentage: 45
+  percentage: 50
   color: warning
 
 - name: Jest, Mocha, Chai
-  percentage: 40
+  percentage: 45
   color: info
 
-- name: Bash, pSQL, MongoDB
+- name: Bash, pSQL
   percentage: 35
   color: info
