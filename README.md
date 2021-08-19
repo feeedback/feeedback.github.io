@@ -1,6 +1,8 @@
-# feeedback.github.io
+## [Personal website](https://risok.vercel.app/)
 
-A beautiful portfolio
-Сайт-визитка с информацией об авторе и портфолио. Построен на JAM стеке статическим генератором Eleventy (мигрировал с Jekyll), с переработанной темой. Адаптивный и доступный дизайн.
+**Сайт-визитка с информацией об авторе и портфолио.**
 
-tags: JS, Sass, JAM stack, Eleventy, Nunjucks, Jekyll, Bootstrap, Gulp, responsive design, Masonry layout
+Построен на JAM-стеке статическим генератором Eleventy (мигрировал с Jekyll), с переработанной темой.   
+Адаптивный и доступный дизайн.
+
+`JS, Sass, JAM stack, Eleventy, Nunjucks, Jekyll, Bootstrap, Gulp, responsive design, Masonry layout`
