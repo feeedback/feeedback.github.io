@@ -9,7 +9,7 @@
         "serve": "npx eleventy --serve",
         "watchGulp": "gulp",
         "deploy-gh-pages": "gh-pages -d _site",
-        "build": "gulp build",        
+        "build": "gulp build",
         "beforeBuild": "gulp beforeBuild",
         "afterBuild": "gulp afterBuild",
         "build-and-deploy": "npm run build & npm run deploy-gh-pages"
@@ -56,6 +56,5 @@
         "postcss-flexbugs-fixes": "^4.2.1",
         "postcss-merge-rules": "^4.0.3",
         "postcss-scss": "^2.1.1"
-    },
-    "dependencies": {}
+    }
 }
