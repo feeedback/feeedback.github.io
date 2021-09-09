@@ -2,86 +2,86 @@
 # Get Colors from : https://brandcolors.net/
 
 email:
-    url: 'mailto:'
-    icon: icon-email
-    color: 'db4437'
+  url: 'mailto:'
+  icon: icon-email
+  color: 'db4437'
 
 facebook:
-    url: https://www.facebook.com/
-    icon: icon-facebook
-    color: '3b5998'
+  url: https://www.facebook.com/
+  icon: icon-facebook
+  color: '3b5998'
 
 github:
-    url: https://www.github.com/
-    icon: icon-github
-    color: '333333'
+  url: https://www.github.com/
+  icon: icon-github
+  color: '333333'
 
 gitlab:
-    url: https://www.gitlab.com/
-    icon: icon-gitlab
-    color: 'fca326'
+  url: https://www.gitlab.com/
+  icon: icon-gitlab
+  color: 'fca326'
 
 instagram:
-    url: https://www.instagram.com/
-    icon: icon-instagram
-    color: '405de6'
+  url: https://www.instagram.com/
+  icon: icon-instagram
+  color: '405de6'
 
 linkedin:
-    url: https://www.linkedin.com/in/
-    icon: icon-linkedin
-    color: '007bb5'
+  url: https://www.linkedin.com/in/
+  icon: icon-linkedin
+  color: '007bb5'
 
 medium:
-    url: https://medium.com/@
-    icon: icon-medium
-    color: '00ab6c'
+  url: https://medium.com/@
+  icon: icon-medium
+  color: '00ab6c'
 
 stackoverflow:
-    url: https://stackoverflow.com/u/
-    icon: icon-stackoverflow
-    color: 'f48024'
+  url: https://stackoverflow.com/u/
+  icon: icon-stackoverflow
+  color: 'f48024'
 
 twitch:
-    url: https://www.twitch.tv/
-    icon: icon-twitch
-    color: '6441a5'
+  url: https://www.twitch.tv/
+  icon: icon-twitch
+  color: '6441a5'
 
 twitter:
-    url: https://www.twitter.com/
-    icon: icon-twitter
-    color: '1da1f2'
+  url: https://www.twitter.com/
+  icon: icon-twitter
+  color: '1da1f2'
 
 vimeo:
-    url: https://www.vimeo.com/
-    icon: icon-vimeo-v
-    color: '162221'
+  url: https://www.vimeo.com/
+  icon: icon-vimeo-v
+  color: '162221'
 
 youtube:
-    url: https://www.youtube.com/
-    icon: icon-youtube
-    color: 'ff0000'
+  url: https://www.youtube.com/
+  icon: icon-youtube
+  color: 'ff0000'
 
 telegram:
-    url: https://t.me/
-    icon: icon-telegram
-    color: '0088cc'
+  url: https://t.me/
+  icon: icon-telegram
+  color: '0088cc'
 
 goodreads:
-    url: https://www.goodreads.com/
-    icon: icon-goodreads
-    color: 'ca8d0e'
+  url: https://www.goodreads.com/
+  icon: icon-goodreads
+  color: 'ca8d0e'
 
 codewars:
-    url: https://www.codewars.com/users/
-    icon: icon-codewars
-    color: 'b1361e'
+  url: https://www.codewars.com/users/
+  icon: icon-codewars
+  color: 'b1361e'
 
 hexlet:
-    url: https://ru.hexlet.io/u/
-    icon: icon-hexlet
-    color: '000000'
+  url: https://ru.hexlet.io/u/
+  icon: icon-hexlet
+  color: '000000'
 
 freecodecamp:
-    url: https://www.freecodecamp.org/
-    icon: icon-free-code-camp
-    color: '000000'
+  url: https://www.freecodecamp.org/
+  icon: icon-free-code-camp
+  color: '000000'

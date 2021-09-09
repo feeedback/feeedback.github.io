@@ -64,7 +64,7 @@
     }
   }
 
-  a:not(.btn):not([class^="carousel-"]):not([class^="list-"]):not(.no-underline) {
+  a:not(.btn):not([class^='carousel-']):not([class^='list-']):not(.no-underline) {
     display: inline-block;
     text-decoration: none;
 
@@ -73,7 +73,7 @@
     }
 
     &::after {
-      content: "";
+      content: '';
       display: block;
       height: 0.15em;
       margin-top: -0.15em;
