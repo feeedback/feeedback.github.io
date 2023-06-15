@@ -1,4 +1,16 @@
-- title: Training course on algorithms
+- title: Node.JS Backend developer
+  company: uKit Group
+  from: September 2021
+  to: Now
+  href: https://career.habr.com/risok
+  description: >-
+    Участвовал в разработке нового продукта. Несколько сервисов на Nest.js, в основе архитектуры гексагональная архитектура, общение через API/очередь. Работал с технологиями email-транспорта. Писал авто-тесты.
+    Активно участвовал в рабочем процессе, предлагал идеи по улучшению продукта, создавал и декомпозировал задачи, уточнял требования у ПО. Проводил код-ревью.
+    И одновременно поддерживал легаси проект (монолит на Node.js), исправлял баги.
+
+    TypeScript • NestJS • Docker • ELK Stack • PostgreSQL • MongoDB • RabbitMQ • Веб-разработка • CI/CD
+
+- title: (courses) Training course on algorithms
   company: Академия Яндекса
   from: June 2021
   to: July 2021
@@ -6,18 +18,15 @@
   description: >-
     8 лекций с домашними заданиями на платформе Яндекс.Контест. 20 задач в неделю. 4 трансляции с проверкой заданий, разбором решений и популярных ошибок
 
-- title: pre-Middle Node.JS developer
-  company: Simple Sales
-  from: April 2021
-  to: July 2021
-  href: https://career.habr.com/risok
-- title: Junior JS developer
+- title: Junior Full-stack developer
   company: Simple Sales
   from: October 2020
-  to: April 2021
+  to: July 2021
   href: https://career.habr.com/risok
+  description: >-
+    Node.js • MongoDB • Redis • AmoCRM • Vue.js • Базы данных • NestJS • AWS
 
-- title: Educational courses
+- title: (courses) Web-development
   company: FreeCodeCamp
   from: May 2020
   to: August 2020
@@ -25,10 +34,21 @@
   description: >-
     Responsive Web Design; JS Algorithms and Data Structures; Front End Libraries; Data Visualization; APIs and Microservices; Quality Assurance
 
-- title: Educational courses
+- title: (courses) "Node.js-developer" & "Frontend-developer"
   company: Hexlet
   from: 2019
   to: 2020
   href: https://ru.hexlet.io/u/risok?ref=53329
   description: >-
     Изучил многие фундаментальные и прикладные темы. Прошёл два направления: фронтенд и бекенд. Подробный список изученных тем по ссылке. 6+ месяцев обучения, 385+ уроков, 318+ упражнений.
+
+- title: JavaScript Full-stack Developer
+  company: Фриланс, проектная работа
+  from: June 2017
+  to: January 2019
+  description: >-
+    Писал с нуля личный проект по парсингу торговых предложений, оценке выгодных лотов и автоматической перепродаже. На площадках связанных с внутриигровыми предметами Steam.
+    Самостоятельно проектировал архитектуру, проверял гипотезы, добавлял функциональность.
+    С технической точки зрения проект (в одной из версий) представлял из себя несколько микросервисов с транспортом через websocket и фронтендом на ванильном JS с простым дашбоардом.
+
+    JavaScript • HTML • CSS • Node.js • Парсинг • WebSockets

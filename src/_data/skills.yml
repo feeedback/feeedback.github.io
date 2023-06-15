@@ -6,42 +6,38 @@
   percentage: 75
   color: danger
 
-- name: JS, Node.js, MongoDB
+- name: JS, Node.js
   percentage: 90
+  color: success
+
+- name:  TS, Express.js, Nest.js, MongoDB
+  percentage: 70
+  color: success
+
+- name:  Redis, SQL, Postgres, Jest
+  percentage: 50
   color: success
 
 - name: Git, GitHub, Gitlab, Npm
   percentage: 70
   color: success
 
-- name: Express.js, WS, Redis
-  percentage: 50
-  color: success
-
-- name: React.js
-  percentage: 50
-  color: warning
-
-- name: Vue.js, Redux
+- name: React.js, Vue.js, Redux, Svelte
   percentage: 35
   color: warning
 
-- name: Figma, Webpack, Gulp, PostCSS
+- name: Vite, Webpack, Gulp, PostCSS
+  percentage: 40
+  color: warning
+
+- name: Bootstrap, Figma
+  percentage: 40
+  color: warning
+
+- name: Jekyll, Eleventy, Nunjucks, Pug
   percentage: 50
   color: warning
 
-- name: Jekyll, Eleventy, Nunjucks
-  percentage: 50
-  color: warning
-
-- name: Bootstrap, Font Awesome, Lodash
-  percentage: 50
-  color: warning
-
-- name: Jest, Mocha, Chai
+- name: Bash, Linux, Docker, Ansible, CI/CD
   percentage: 45
-  color: info
-
-- name: Bash, pSQL
-  percentage: 35
   color: info

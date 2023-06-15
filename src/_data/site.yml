@@ -53,7 +53,7 @@ main_info_author:
   # gitlab            : your_username
   # instagram         : your_username
   telegram: risok
-  # linkedin             : risok
+  linkedin             : risok
 
 ### Posts ###
 permalink: /blog/:title
