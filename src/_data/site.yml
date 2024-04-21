@@ -1,13 +1,13 @@
 ### Site Settings ###
-title: Alexander Rzhanitsyn. Portfolio
+title: Aleksandr Rzhanitsyn. Portfolio
 description: >-
   Программирую, творю, обучаюсь.
-  Full-stack Web developer.
-label: Full-stack Web developer
+  Backend Node.js Developer.
+label: Backend Node.js Developer
 summary: Программирую, творю, обучаюсь.
 about_me: >-
-  Программирую, творю, обучаюсь. Предпочту работать в крупной компании с отлаженными процессами в команде разработчиков. Люблю умные книги, качественную архитектуру и разбираться в концепциях.
-baseurl: '' # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
+  Программирую, творю, обучаюсь. Люблю умные книги, качественную архитектуру и разбираться в концепциях. Предпочту работать в средней/крупной компании с отлаженными процессами в команде сильных разработчиков. Нацелен на результат.
+baseurl: "" # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository: feeedback/feeedback.github.io # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 
 ### Navbar Settings ###
@@ -18,7 +18,7 @@ repository: feeedback/feeedback.github.io # Change to <your-username>/<your-user
 
 ### Author Info ###
 author:
-  name: Alexander Rzhanitsyn
+  name: Aleksandr Rzhanitsyn
   image: ./assets/img/avatar
   # behance           : your_username
   # dribbble          : your_username
@@ -39,7 +39,7 @@ author:
   # stackoverflow     : your_user_id
   # tumblr            : your_username.tumblr.com
   # twitch            : your_username
-  # twitter           : feeedback
+  # twitter           : your_username
   # vimeo             : your_username
   # youtube           : your_channel_name
 
@@ -53,7 +53,7 @@ main_info_author:
   # gitlab            : your_username
   # instagram         : your_username
   telegram: risok
-  linkedin             : risok
+  linkedin: risok
 
 ### Posts ###
 permalink: /blog/:title

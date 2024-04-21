@@ -1,43 +1,39 @@
-- name: Semantic HTML5, CSS3
+- name: JavaScript, TypeScript, Node.js
+  percentage: 95
+  color: success
+
+- name: Express.js, Nest.js, Jest
+  percentage: 90
+  color: success
+
+- name: SQL, Postgres, MongoDB, Redis
   percentage: 85
+  color: success
+
+- name: Git, GitHub, Gitlab, NPM
+  percentage: 85
+  color: success
+
+- name: Bash, Linux, Docker, Ansible, CI/CD
+  percentage: 65
+  color: info
+
+- name: Semantic HTML5, CSS3
+  percentage: 90
   color: danger
 
 - name: Responsive design, Accessibility
   percentage: 75
   color: danger
 
-- name: JS, Node.js
-  percentage: 90
-  color: success
-
-- name:  TS, Express.js, Nest.js, MongoDB
-  percentage: 70
-  color: success
-
-- name:  Redis, SQL, Postgres, Jest
-  percentage: 50
-  color: success
-
-- name: Git, GitHub, Gitlab, Npm
-  percentage: 70
-  color: success
-
-- name: React.js, Vue.js, Redux, Svelte
-  percentage: 35
+- name: React.js, Svelte, Vue.js, Redux
+  percentage: 40
   color: warning
 
 - name: Vite, Webpack, Gulp, PostCSS
   percentage: 40
   color: warning
 
-- name: Bootstrap, Figma
-  percentage: 40
-  color: warning
-
 - name: Jekyll, Eleventy, Nunjucks, Pug
   percentage: 50
   color: warning
-
-- name: Bash, Linux, Docker, Ansible, CI/CD
-  percentage: 45
-  color: info
